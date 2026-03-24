@@ -26,6 +26,11 @@ const obs = new IntersectionObserver(entries => {
 document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
 // Form submit
+// Consent checkbox enables/disables submit button
+document.getElementById('fconsent').addEventListener('change', function () {
+  document.getElementById('btnSubmit').disabled = !this.checked;
+});
+
 function submitForm() {
   const name  = document.getElementById('fname').value.trim();
   const phone = document.getElementById('fphone').value.trim();

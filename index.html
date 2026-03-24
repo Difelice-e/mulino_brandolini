@@ -408,11 +408,11 @@
         <p class="form-subtitle">Gabriele ti risponde personalmente entro poche ore</p>
         <div id="contactForm">
           <div class="form-group">
-            <label for="fname">Nome e Cognome *</label>
+            <label for="fname">Nome e Cognome <span class="required-star">*</span></label>
             <input type="text" id="fname" placeholder="Mario Rossi" required>
           </div>
           <div class="form-group">
-            <label for="fphone">Numero di telefono *</label>
+            <label for="fphone">Numero di telefono <span class="required-star">*</span></label>
             <input type="tel" id="fphone" placeholder="+39 333 123 4567" required>
           </div>
           <div class="form-row">
@@ -439,8 +439,11 @@
             <label for="fmsg">Messaggio (facoltativo)</label>
             <textarea id="fmsg" placeholder="Numero di persone, notti, esigenze particolari..."></textarea>
           </div>
-          <p class="form-note">✓ I tuoi dati sono al sicuro. Verranno usati esclusivamente per rispondere alla tua richiesta.</p>
-          <button class="btn-submit" onclick="submitForm()">Invia richiesta →</button>
+          <div class="form-consent">
+            <input type="checkbox" id="fconsent">
+            <label for="fconsent">Ho letto e accetto il trattamento dei dati personali ai sensi del <a href="#" target="_blank">Regolamento UE 2016/679 (GDPR)</a>. <span class="required-star">*</span></label>
+          </div>
+          <button class="btn-submit" id="btnSubmit" onclick="submitForm()" disabled>Invia richiesta →</button>
         </div>
         <div class="form-success" id="formSuccess">
           <div style="font-size:2rem;margin-bottom:1rem">🌿</div>
