@@ -7,301 +7,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --stone:#c8b89a; --stone-light:#e8ddd0; --stone-dark:#8c7660;
-  --earth:#6b4f3a; --earth-dark:#3d2b1f;
-  --cream:#f5f0e8; --cream-warm:#fdf8f0;
-  --olive:#7a8c5c; --olive-dark:#4a5c30;
-  --ink:#1a1410; --ink-soft:#3d3028;
-  --rust:#b85c38; --gold:#c9a84c;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Raleway',sans-serif;background:var(--cream-warm);color:var(--ink);overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4}
-
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center;transition:background .4s,padding .4s}
-nav.scrolled{background:rgba(245,240,232,.96);padding:.8rem 3rem;backdrop-filter:blur(8px);border-bottom:1px solid rgba(200,184,154,.3)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;letter-spacing:.08em;color:var(--cream);text-decoration:none;transition:color .3s}
-nav.scrolled .nav-logo{color:var(--earth-dark)}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,240,232,.85);text-decoration:none;transition:color .3s;font-weight:400}
-nav.scrolled .nav-links a{color:var(--stone-dark)}
-.nav-links a:hover{color:var(--gold)}
-
-/* ── HERO ── */
-.hero{height:100vh;min-height:620px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,20,16,.25) 0%,rgba(26,20,16,.6) 100%)}
-.hero-wheel{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:520px;height:520px;opacity:.07;animation:rotate 80s linear infinite}
-@keyframes rotate{to{transform:translateY(-50%) rotate(360deg)}}
-.hero-content{position:relative;text-align:center;color:var(--cream);padding:2rem;max-width:780px}
-.hero-eyebrow{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .3s forwards}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,8vw,6.5rem);font-weight:300;line-height:1.05;letter-spacing:.02em;margin-bottom:.2rem;opacity:0;animation:fadeUp .9s .5s forwards}
-.hero-title em{font-style:italic;color:var(--stone-light);font-weight:300}
-.hero-subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.5vw,1.4rem);font-weight:300;letter-spacing:.15em;color:var(--stone-light);margin-bottom:3rem;opacity:0;animation:fadeUp .9s .7s forwards}
-.hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp .9s .9s forwards}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.btn-primary{display:inline-block;padding:.9rem 2.2rem;background:var(--earth);color:var(--cream);text-decoration:none;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;transition:background .3s,transform .2s;border:1px solid var(--earth)}
-.btn-primary:hover{background:var(--earth-dark);transform:translateY(-2px)}
-.btn-outline{display:inline-block;padding:.9rem 2.2rem;background:transparent;color:var(--cream);text-decoration:none;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid rgba(245,240,232,.5);transition:border-color .3s,transform .2s}
-.btn-outline:hover{border-color:var(--stone);transform:translateY(-2px)}
-.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--stone-light);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;opacity:0;animation:fadeUp 1s 1.4s forwards}
-.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--stone),transparent);animation:sPulse 2s 2s infinite}
-@keyframes sPulse{0%,100%{transform:scaleY(1);opacity:.6}50%{transform:scaleY(.5);opacity:1}}
-
-/* ── SHARED ── */
-section{padding:6rem 2rem}
-.section-label{font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;color:var(--olive);margin-bottom:1rem}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:400;line-height:1.15;color:var(--earth-dark);margin-bottom:1.5rem}
-.section-title em{font-style:italic;color:var(--earth)}
-.section-body{font-size:.92rem;line-height:1.9;color:var(--ink-soft);font-weight:300;max-width:56ch}
-.divider{width:48px;height:1px;background:var(--gold);margin:2rem 0}
-.fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
-.fd1{transition-delay:.1s}.fd2{transition-delay:.22s}.fd3{transition-delay:.34s}
-
-/* ── ABOUT ── */
-.about-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:7rem 4rem}
-.about-stack{position:relative;height:480px}
-.about-main{position:absolute;top:0;left:0;width:78%;height:85%;overflow:hidden;border-radius:2px}
-.about-main img{width:100%;height:100%;object-fit:cover;object-position:center}
-.about-accent{position:absolute;bottom:0;right:0;width:50%;height:50%;overflow:hidden;border-radius:2px;border:6px solid var(--cream-warm)}
-.about-accent img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.about-badge{position:absolute;top:50%;left:60%;transform:translate(-50%,-50%);width:90px;height:90px;border-radius:50%;background:var(--earth);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;border:3px solid var(--cream-warm)}
-.about-badge span{font-family:'Cormorant Garamond',serif;color:var(--cream);line-height:1.1;text-align:center}
-.about-badge .yr{font-size:1.5rem;font-weight:500}
-.about-badge .sc{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stone-light)}
-
-/* ── STORIA ── */
-.storia-section{background:var(--earth-dark);padding:0;overflow:hidden;position:relative}
-.storia-section::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(200,184,154,.2) 15%,rgba(200,184,154,.2) 85%,transparent);transform:translateX(-50%)}
-.storia-inner{max-width:1200px;margin:0 auto;padding:7rem 4rem}
-.storia-header{text-align:center;margin-bottom:4rem}
-.storia-header .section-label{color:var(--stone)}
-.storia-header .section-title{color:var(--cream);margin-bottom:0}
-.storia-header .section-title em{color:var(--stone-light)}
-.storia-quote{text-align:center;max-width:680px;margin:0 auto 3.5rem;padding:0 2rem;position:relative}
-.storia-quote::before{content:'\201C';font-family:'Cormorant Garamond',serif;font-size:8rem;color:rgba(200,184,154,.1);position:absolute;top:-2rem;left:50%;transform:translateX(-50%);line-height:1;pointer-events:none}
-.storia-quote p{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.5vw,1.5rem);font-style:italic;color:var(--stone-light);line-height:1.7;font-weight:300;position:relative}
-.storia-quote cite{display:block;margin-top:1.2rem;font-family:'Raleway',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--stone-dark);font-style:normal}
-/* Museum photos */
-.storia-museo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:4rem;max-width:720px;margin-left:auto;margin-right:auto}
-.storia-museo-item{height:260px;overflow:hidden;border:1px solid rgba(200,184,154,.15)}
-.storia-museo-item img{width:100%;height:100%;object-fit:cover;filter:sepia(.15);transition:transform .6s}
-.storia-museo-item:hover img{transform:scale(1.04)}
-/* Timeline */
-.storia-timeline{display:grid;grid-template-columns:1fr 1fr;gap:0;position:relative}
-.storia-node{padding:3rem 4rem;position:relative}
-.storia-node:nth-child(odd){text-align:right;padding-right:5rem}
-.storia-node:nth-child(even){text-align:left;padding-left:5rem}
-.storia-node::after{content:'';position:absolute;top:3.5rem;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--earth-dark);box-shadow:0 0 0 4px rgba(201,168,76,.2)}
-.storia-node:nth-child(odd)::after{right:-5px}
-.storia-node:nth-child(even)::after{left:-5px}
-.storia-node-year{font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:rgba(200,184,154,.18);font-weight:300;line-height:1;margin-bottom:.5rem;display:block}
-.storia-node-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--stone-light);font-weight:400;margin-bottom:.7rem}
-.storia-node-text{font-size:.8rem;line-height:1.8;color:rgba(200,184,154,.5);font-weight:300}
-/* Prose + facts */
-.storia-prose{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:5rem;padding-top:5rem;border-top:1px solid rgba(200,184,154,.1);align-items:start}
-.storia-prose-text{font-size:.88rem;line-height:2;color:rgba(200,184,154,.55);font-weight:300}
-.storia-prose-text p+p{margin-top:1.2rem}
-.storia-prose-text strong{color:var(--stone);font-weight:400}
-.storia-facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(200,184,154,.1);border:1px solid rgba(200,184,154,.1)}
-.storia-fact{background:rgba(255,255,255,.02);padding:1.6rem 1.4rem;text-align:center;transition:background .3s}
-.storia-fact:hover{background:rgba(255,255,255,.05)}
-.storia-fact-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--gold);font-weight:300;line-height:1;display:block;margin-bottom:.3rem}
-.storia-fact-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--stone-dark);font-weight:300}
-.storia-owner{grid-column:1/-1;display:flex;align-items:center;gap:2rem;padding:2.5rem;border:1px solid rgba(200,184,154,.12);margin-top:3rem;background:rgba(255,255,255,.02)}
-.storia-owner-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--earth),var(--stone-dark));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);font-weight:300;border:2px solid rgba(200,184,154,.2)}
-.storia-owner-quote{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--stone-light);line-height:1.6;font-weight:300;margin-bottom:.5rem}
-.storia-owner-name{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone-dark)}
-
-/* ── FEATURES ── */
-.features-section{background:linear-gradient(to bottom,var(--cream-warm),var(--stone-light));padding:6rem 2rem}
-.features-inner{max-width:1100px;margin:0 auto}
-.features-header{text-align:center;margin-bottom:4rem}
-.features-header .section-label{color:var(--olive)}
-.features-header .section-title{color:var(--earth-dark);margin-bottom:0}
-.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(140,118,96,.2)}
-.feature-item{padding:2.8rem 2rem;border-right:1px solid rgba(140,118,96,.2);text-align:center;transition:background .3s;background:rgba(255,255,255,.5)}
-.feature-item:nth-child(3n){border-right:none}
-.feature-item:nth-child(n+4){border-top:1px solid rgba(140,118,96,.2)}
-.feature-item:hover{background:white}
-.feature-icon-wrap{width:52px;height:52px;border-radius:50%;border:1px solid rgba(140,118,96,.25);display:flex;align-items:center;justify-content:center;margin:0 auto 1.3rem;transition:border-color .3s,background .3s}
-.feature-item:hover .feature-icon-wrap{border-color:var(--earth);background:rgba(107,79,58,.06)}
-.feature-icon-wrap svg{width:22px;height:22px;stroke:var(--stone-dark);stroke-width:1.5;fill:none;transition:stroke .3s}
-.feature-item:hover .feature-icon-wrap svg{stroke:var(--earth)}
-.feature-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--earth-dark);margin-bottom:.6rem;font-weight:400}
-.feature-desc{font-size:.78rem;line-height:1.7;color:var(--ink-soft);font-weight:300}
-
-/* ── GALLERY ── */
-.gallery-section{background:var(--cream-warm);padding:6rem 2rem}
-.gallery-inner{max-width:1300px;margin:0 auto}
-.gallery-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem}
-.gallery-grid{display:grid;grid-template-columns:2.4fr 1fr 1.4fr;grid-template-rows:290px 190px 260px;gap:14px}
-.gallery-item{overflow:hidden;cursor:pointer;position:relative}
-.gallery-item::after{content:'';position:absolute;inset:0;background:rgba(61,43,31,0);transition:background .4s}
-.gallery-item:hover::after{background:rgba(61,43,31,.2)}
-.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
-.gallery-item:hover img{transform:scale(1.05)}
-.gallery-label{position:absolute;bottom:0;left:0;right:0;padding:.6rem .9rem;background:linear-gradient(to top,rgba(26,20,16,.65),transparent);color:rgba(245,240,232,.85);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:300;opacity:0;transition:opacity .3s}
-.gallery-item:hover .gallery-label{opacity:1}
-.gi1{grid-column:1;grid-row:1/3}
-.gi2{grid-column:2;grid-row:1}
-.gi3{grid-column:3;grid-row:1/3}
-.gi4{grid-column:2;grid-row:2}
-.gi5{grid-column:1/3;grid-row:3}
-.gi6{grid-column:3;grid-row:3}
-
-/* ── NEARBY ── */
-.nearby-section{background:var(--stone-light);padding:6rem 2rem}
-.nearby-inner{max-width:1100px;margin:0 auto}
-.nearby-columns{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:3.5rem}
-.nearby-col{background:white;padding:2rem 1.8rem;border:1px solid rgba(200,184,154,.3)}
-.nearby-col-title{display:flex;align-items:center;gap:.7rem;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--earth);margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid rgba(200,184,154,.4);font-weight:500}
-.nearby-col-title svg{width:15px;height:15px;stroke:var(--earth);fill:none;stroke-width:2;flex-shrink:0}
-.nearby-item{display:flex;justify-content:space-between;align-items:baseline;padding:.65rem 0;border-bottom:1px solid rgba(200,184,154,.2)}
-.nearby-item:last-child{border-bottom:none}
-.nearby-name{font-size:.84rem;color:var(--ink-soft);font-weight:400}
-.nearby-dist{font-size:.72rem;color:var(--stone-dark);font-weight:300;white-space:nowrap;margin-left:1rem}
-.nearby-dist strong{color:var(--earth);font-weight:600}
-
-/* ── MAP ── */
-.map-section{padding:0}
-.map-wrapper{position:relative;width:100%;height:420px;overflow:hidden}
-.map-wrapper iframe{width:100%;height:100%;border:none}
-.map-overlay-card{position:absolute;top:50%;left:6%;transform:translateY(-50%);background:white;padding:1.8rem 2rem;border:1px solid rgba(200,184,154,.4);box-shadow:0 8px 40px rgba(61,43,31,.15);max-width:240px}
-.map-card-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--earth-dark);font-weight:500;margin-bottom:.3rem}
-.map-card-sub{font-size:.7rem;color:var(--stone-dark);letter-spacing:.06em;margin-bottom:.4rem;font-weight:300;line-height:1.5}
-.map-card-link{display:inline-block;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--earth);text-decoration:none;border-bottom:1px solid var(--stone);padding-bottom:2px;margin-top:.8rem;transition:color .3s}
-.map-card-link:hover{color:var(--earth-dark)}
-
-/* ── REVIEWS ── */
-.reviews-section{background:var(--earth-dark);padding:6rem 2rem}
-.reviews-inner{max-width:1100px;margin:0 auto}
-.reviews-header{text-align:center;margin-bottom:1rem}
-.reviews-header .section-label{color:var(--stone)}
-.reviews-header .section-title{color:var(--cream);margin-bottom:0}
-.reviews-avg{display:flex;align-items:center;justify-content:center;gap:1.2rem;margin:1.5rem 0 3.5rem}
-.reviews-score{font-family:'Cormorant Garamond',serif;font-size:3.8rem;color:var(--gold);font-weight:300;line-height:1}
-.reviews-stars{display:flex;gap:4px}
-.reviews-stars svg{width:15px;height:15px;fill:var(--gold)}
-.reviews-count{font-size:.72rem;color:var(--stone-dark);letter-spacing:.1em;margin-top:.25rem}
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-.review-card{background:rgba(255,255,255,.04);padding:2rem 1.8rem;border:1px solid rgba(200,184,154,.1);transition:background .3s}
-.review-card:hover{background:rgba(255,255,255,.07)}
-.review-stars{display:flex;gap:3px;margin-bottom:1rem}
-.review-stars svg{width:12px;height:12px;fill:var(--gold)}
-.review-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--stone-light);line-height:1.65;margin-bottom:1.5rem;font-weight:300}
-.review-author{display:flex;align-items:center;gap:.8rem}
-.review-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--cream);font-weight:500;flex-shrink:0}
-.review-name{font-size:.78rem;color:var(--stone);font-weight:400}
-.review-meta{font-size:.65rem;color:var(--stone-dark);font-weight:300}
-.review-source{display:flex;align-items:center;gap:.35rem;margin-left:auto;font-size:.62rem;color:var(--stone-dark)}
-.review-source svg{width:12px;height:12px;stroke:var(--stone-dark);fill:none;stroke-width:1.5}
-
-/* ── BOOKING ── */
-.booking-section{background:var(--stone-light);padding:5rem 2rem;text-align:center}
-.booking-inner{max-width:760px;margin:0 auto}
-.booking-platforms{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem}
-.platform-btn{display:flex;align-items:center;gap:.8rem;padding:1rem 1.8rem;background:white;border:1px solid rgba(140,118,96,.3);text-decoration:none;color:var(--ink-soft);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:transform .2s,box-shadow .2s;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.platform-btn:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
-.platform-btn.airbnb-ph{opacity:.75}
-.btn-coming{font-size:.52rem;letter-spacing:.06em;color:var(--stone-dark);font-style:italic;margin-left:.2rem;text-transform:none}
-
-/* ── CONTACT ── */
-.contact-section{background:var(--cream-warm);padding:6rem 2rem}
-.contact-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
-.contact-detail{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.2rem}
-.contact-detail-icon{width:32px;height:32px;border-radius:50%;border:1px solid rgba(200,184,154,.5);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
-.contact-detail-icon svg{width:14px;height:14px;stroke:var(--earth);fill:none;stroke-width:2}
-.contact-detail-text{font-size:.85rem;line-height:1.6;color:var(--ink-soft);font-weight:300}
-.contact-detail-label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone-dark);display:block;margin-bottom:.1rem}
-.contact-detail-text a{color:var(--earth);text-decoration:none}
-.contact-detail-text a:hover{text-decoration:underline}
-.contact-form{background:white;padding:2.5rem;border:1px solid rgba(200,184,154,.4)}
-.form-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--earth-dark);margin-bottom:.4rem;font-weight:400}
-.form-subtitle{font-size:.78rem;color:var(--stone-dark);margin-bottom:2rem;font-weight:300}
-.form-group{margin-bottom:1.2rem}
-.form-group label{display:block;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone-dark);margin-bottom:.4rem}
-.form-group input,.form-group textarea,.form-group select{width:100%;padding:.8rem 1rem;border:1px solid rgba(200,184,154,.5);background:var(--cream-warm);font-family:'Raleway',sans-serif;font-size:.88rem;color:var(--ink);font-weight:300;outline:none;transition:border-color .3s;border-radius:0;-webkit-appearance:none}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--earth);background:white}
-.form-group textarea{height:80px;resize:none}
-.form-group select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238c7660' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
-.form-note{font-size:.68rem;color:var(--stone-dark);margin-bottom:1.5rem;font-weight:300;line-height:1.6}
-.btn-submit{width:100%;padding:1rem;background:var(--earth);color:var(--cream);border:none;font-family:'Raleway',sans-serif;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:background .3s;font-weight:400}
-.btn-submit:hover{background:var(--earth-dark)}
-.form-success{display:none;text-align:center;padding:1.5rem;color:var(--olive-dark);font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic}
-
-/* ── FOOTER ── */
-footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
-.footer-top{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.2fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(200,184,154,.1)}
-.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--stone-light);font-weight:300;letter-spacing:.08em;display:block;margin-bottom:.3rem}
-.footer-tagline{font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone-dark);margin-bottom:1.2rem}
-.footer-desc{font-size:.78rem;line-height:1.75;color:rgba(200,184,154,.45);font-weight:300;max-width:27ch}
-.footer-social{display:flex;gap:.6rem;margin-top:1.6rem}
-.footer-social a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(200,184,154,.18);display:flex;align-items:center;justify-content:center;color:var(--stone-dark);text-decoration:none;transition:border-color .3s,color .3s}
-.footer-social a:hover{border-color:var(--gold);color:var(--gold)}
-.footer-social a svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
-.footer-col-title{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--stone);margin-bottom:1.2rem;font-weight:500}
-.footer-col-links{list-style:none;display:flex;flex-direction:column;gap:.65rem}
-.footer-col-links a{font-size:.78rem;color:rgba(200,184,154,.45);text-decoration:none;font-weight:300;transition:color .3s}
-.footer-col-links a:hover{color:var(--stone)}
-.footer-contact-item{display:flex;align-items:flex-start;gap:.6rem;margin-bottom:.85rem}
-.footer-contact-item svg{width:13px;height:13px;stroke:var(--stone-dark);fill:none;stroke-width:2;flex-shrink:0;margin-top:3px}
-.footer-contact-item span{font-size:.76rem;color:rgba(200,184,154,.45);font-weight:300;line-height:1.5}
-.footer-contact-item a{color:rgba(200,184,154,.45);text-decoration:none;transition:color .3s}
-.footer-contact-item a:hover{color:var(--stone)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.8rem;flex-wrap:wrap;gap:1rem}
-.footer-copy{font-size:.65rem;color:rgba(140,118,96,.38)}
-.footer-bottom-links{display:flex;gap:2rem}
-.footer-bottom-links a{font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(140,118,96,.38);text-decoration:none;transition:color .3s}
-.footer-bottom-links a:hover{color:var(--stone-dark)}
-
-/* ── RESPONSIVE ── */
-@media(max-width:1050px){.footer-top{grid-template-columns:1fr 1fr}}
-@media(max-width:900px){
-  nav{padding:1rem 1.5rem} nav.scrolled{padding:.7rem 1.5rem} .nav-links{display:none}
-  .about-wrap{grid-template-columns:1fr;gap:3rem;padding:4rem 1.5rem}
-  .about-stack{height:320px}
-  .storia-section::before{display:none}
-  .storia-inner{padding:5rem 1.5rem}
-  .storia-timeline{grid-template-columns:1fr}
-  .storia-node{padding:2rem 1.5rem 2rem 3rem!important;text-align:left!important}
-  .storia-node::after{left:4px!important;right:auto!important}
-  .storia-prose{grid-template-columns:1fr;gap:2.5rem}
-  .storia-facts{grid-template-columns:1fr 1fr}
-  .storia-owner{flex-direction:column;text-align:center}
-  .storia-museo{grid-template-columns:1fr;gap:8px}
-  .storia-museo-item{height:200px}
-  .features-grid{grid-template-columns:1fr}
-  .feature-item{border-right:none!important;border-top:none!important;border-bottom:1px solid rgba(140,118,96,.15)}
-  .feature-item:last-child{border-bottom:none}
-  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:200px 180px 180px 200px;gap:8px}
-  .gi1{grid-column:1/3;grid-row:1} .gi2{grid-column:1;grid-row:2} .gi3{grid-column:2;grid-row:2}
-  .gi4{grid-column:1;grid-row:3} .gi5{grid-column:2;grid-row:3} .gi6{grid-column:1/3;grid-row:4}
-  .nearby-columns{grid-template-columns:1fr;gap:2px}
-  .map-overlay-card{display:none}
-  .reviews-grid{grid-template-columns:1fr;gap:2px}
-  .contact-inner{grid-template-columns:1fr;gap:3rem}
-  .form-row{grid-template-columns:1fr}
-  footer{padding:3rem 1.5rem 1.5rem}
-  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
-  .footer-bottom{flex-direction:column;align-items:flex-start}
-  .gallery-header{flex-direction:column;align-items:flex-start;gap:1rem}
-}
-@media(max-width:560px){.footer-top{grid-template-columns:1fr}}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">Mulino Brandolini</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#about">La Struttura</a></li>
     <li><a href="#storia">Storia</a></li>
     <li><a href="#gallery">Galleria</a></li>
@@ -310,11 +23,16 @@ footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
     <li><a href="#prenota">Prenota</a></li>
     <li><a href="#contatti">Contatti</a></li>
   </ul>
+  <button class="burger" id="burger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <img class="hero-img" src="imgs/hero.jpg" alt="Vista panoramica del Mulino Brandolini tra le colline abruzzesi">
+  <img class="hero-img" src="imgs/about1.jpg" alt="Facciata del Mulino Brandolini con selciato in pietra">
   <div class="hero-overlay"></div>
   <svg class="hero-wheel" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="100" cy="100" r="95" stroke="white" stroke-width="2"/>
@@ -346,7 +64,7 @@ footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
   <div class="about-wrap">
     <div class="about-stack fade-in">
       <div class="about-main">
-        <img src="imgs/about1.jpg" alt="Facciata del Mulino Brandolini con selciato in pietra">
+        <img src="imgs/hero.jpg" alt="Vista panoramica del Mulino Brandolini tra le colline abruzzesi">
       </div>
       <div class="about-accent">
         <img src="imgs/about2.jpg" alt="Giardino con rose rosse del Mulino Brandolini">
@@ -422,7 +140,9 @@ footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
           <div class="storia-fact"><span class="storia-fact-num">200+</span><span class="storia-fact-label">anni di storia</span></div>
         </div>
         <div class="storia-owner">
-          <div class="storia-owner-avatar">G</div>
+          <div class="storia-owner-avatar">
+            <img src="imgs/gabriele.jpg" alt="Gabriele Brandolini">
+          </div>
           <div>
             <p class="storia-owner-quote">"Siamo lieti di ospitarvi in questo piccolo gioiello storico e siamo sempre a vostra disposizione per rendere la vostra esperienza indimenticabile."</p>
             <span class="storia-owner-name">Gabriele Brandolini — Proprietario</span>
@@ -463,18 +183,13 @@ footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
       </div>
       <div class="feature-item fade-in fd1">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-        <div class="feature-title">10 posti auto</div>
-        <div class="feature-desc">Ampio parcheggio privato gratuito, accesso facilitato anche per pullmini e veicoli grandi</div>
+        <div class="feature-title">Parcheggio &amp; noleggio</div>
+        <div class="feature-desc">10 posti auto gratuiti; su richiesta noleggio auto o pulmino 9 posti per escursioni e transfer dall'aeroporto di Pescara</div>
       </div>
       <div class="feature-item fade-in fd2">
         <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
         <div class="feature-title">Wi-Fi gratuito</div>
         <div class="feature-desc">Connessione Wi-Fi inclusa in tutta la struttura, TV con canali via cavo e lavatrice disponibile</div>
-      </div>
-      <div class="feature-item fade-in" style="grid-column:1/-1;max-width:380px;margin:0 auto;border-right:none!important">
-        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect x="9" y="11" width="14" height="10" rx="1"/><circle cx="12" cy="21" r="1" fill="currentColor" stroke="none"/><circle cx="20" cy="21" r="1" fill="currentColor" stroke="none"/></svg></div>
-        <div class="feature-title">Noleggio auto &amp; pulmino 9 posti</div>
-        <div class="feature-desc">Disponibile su richiesta — ideale per gruppi, escursioni e trasferimenti dall'aeroporto di Pescara</div>
       </div>
     </div>
   </div>
@@ -564,11 +279,6 @@ footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
       allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
       title="Posizione Casa Vacanze Mulino Brandolini">
     </iframe>
-    <div class="map-overlay-card" id="mapCard">
-      <div class="map-card-title">Mulino Brandolini</div>
-      <div class="map-card-sub">Via De Contra, 23<br>65010 Vicoli (PE) · Abruzzo</div>
-      <a href="https://maps.google.com/?q=Casa+Vacanze+Mulino+Brandolini+Vicoli+PE" target="_blank" rel="noopener" class="map-card-link">Apri in Google Maps →</a>
-    </div>
   </div>
 </div>
 
@@ -631,7 +341,6 @@ footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
     <h2 class="section-title">Scegli la tua<br><em>piattaforma preferita</em></h2>
     <p class="section-body" style="margin:0 auto;text-align:center">Disponibile su Booking.com e Airbnb — o contattaci direttamente per tariffe speciali, soggiorni personalizzati e affitto dell'intera villa per gruppi fino a 10 persone.</p>
     <div class="booking-platforms">
-      <!-- Booking.com -->
       <a href="https://www.booking.com/hotel/it/mulino-brandolini.it.html" target="_blank" rel="noopener" class="platform-btn">
         <svg width="28" height="28" viewBox="0 0 40 40" style="flex-shrink:0;border-radius:5px">
           <rect width="40" height="40" fill="#003580"/>
@@ -639,7 +348,6 @@ footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
         </svg>
         Booking.com
       </a>
-      <!-- Airbnb placeholder -->
       <a href="#" class="platform-btn airbnb-ph" title="Link Airbnb in arrivo a breve">
         <svg width="28" height="28" viewBox="0 0 40 40" style="flex-shrink:0;border-radius:5px">
           <rect width="40" height="40" fill="#FF5A5F"/>
@@ -648,7 +356,6 @@ footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
         Airbnb
         <span class="btn-coming">(link in arrivo)</span>
       </a>
-      <!-- Phone -->
       <a href="tel:+393356799679" class="platform-btn">
         <svg width="28" height="28" viewBox="0 0 40 40" style="flex-shrink:0;border-radius:5px">
           <rect width="40" height="40" fill="#4a5c30"/>
@@ -656,7 +363,6 @@ footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
         </svg>
         +39 335 679 9679
       </a>
-      <!-- Direct contact -->
       <a href="#contatti" class="platform-btn" style="background:var(--earth);color:var(--cream);border-color:var(--earth)">
         <svg width="28" height="28" viewBox="0 0 40 40" style="flex-shrink:0;border-radius:5px">
           <rect width="40" height="40" fill="rgba(255,255,255,.12)"/>
@@ -814,39 +520,6 @@ footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
   </div>
 </footer>
 
-<script>
-// Check-in date min = today
-document.getElementById('fcheckin').min = new Date().toISOString().split('T')[0];
-
-// Nav scroll
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
-
-// Scroll animations
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-}, {threshold: 0.08});
-document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-
-// Form submit
-function submitForm() {
-  const name  = document.getElementById('fname').value.trim();
-  const phone = document.getElementById('fphone').value.trim();
-  if(!name || !phone) { alert('Compila nome e numero di telefono per procedere.'); return; }
-  document.getElementById('contactForm').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
-  console.log('Richiesta:', {name, phone,
-    checkin: document.getElementById('fcheckin').value,
-    time: document.getElementById('ftime').value});
-}
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if(t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
-  });
-});
-</script>
+<script src="script.js" defer></script>
 </body>
 </html>
