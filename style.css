@@ -170,18 +170,19 @@ section{padding:var(--section-py) var(--section-px)}
 
 /* ── STORIA ── */
 .storia-section{background:var(--earth-dark);padding:0;overflow:hidden;position:relative}
-.storia-section::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(200,184,154,.2) 15%,rgba(200,184,154,.2) 85%,transparent);transform:translateX(-50%)}
+.storia-section::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:0;border-left:1px dashed rgba(200,184,154,.28);transform:translateX(-50%)}
 .storia-inner{max-width:var(--inner-lg);margin:0 auto;padding:7rem 4rem}
-.storia-header{text-align:center;margin-bottom:4rem}
+.storia-header{text-align:center;margin-bottom:2rem}
 .storia-header .section-label{color:var(--stone)}
 .storia-header .section-title{color:var(--cream);margin-bottom:0}
 .storia-header .section-title em{color:var(--stone-light)}
-.storia-quote{text-align:center;max-width:680px;margin:0 auto 3.5rem;padding:0 2rem;position:relative}
+.storia-quote{text-align:center;max-width:680px;margin:0 auto 2rem;padding:0 2rem;position:relative}
 .storia-quote::before{content:'\201C';font-family:var(--font-display);font-size:8rem;color:rgba(200,184,154,.1);position:absolute;top:-2rem;left:50%;transform:translateX(-50%);line-height:1;pointer-events:none}
 .storia-quote p{font-family:var(--font-display);font-size:var(--text-quote);font-style:italic;color:var(--stone-light);line-height:var(--leading-normal);font-weight:var(--weight-light);position:relative}
 .storia-quote cite{display:block;margin-top:1.2rem;font-family:var(--font-body);font-size:var(--text-label);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--stone-dark);font-style:normal}
-.storia-museo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:4rem;max-width:720px;margin-left:auto;margin-right:auto}
-.storia-museo-item{height:260px;overflow:hidden;border:1px solid rgba(200,184,154,.15)}
+.storia-museo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:2rem;max-width:720px;margin-left:auto;margin-right:auto}
+.storia-museo-item{aspect-ratio:4/3;overflow:hidden;border:1px solid rgba(200,184,154,.15);clip-path:inset(0 0 100% 0);transition:clip-path .95s cubic-bezier(.4,0,.2,1)}
+.storia-museo-item picture{display:block;width:100%;height:100%}
 .storia-museo-item img{width:100%;height:100%;object-fit:cover;filter:sepia(.15);transition:transform .6s}
 .storia-museo-item:hover img{transform:scale(1.04)}
 .storia-timeline{display:grid;grid-template-columns:1fr 1fr;gap:0;position:relative}
@@ -191,11 +192,11 @@ section{padding:var(--section-py) var(--section-px)}
 .storia-node::after{content:'';position:absolute;top:3.5rem;width:10px;height:10px;border-radius:var(--radius-full);background:var(--gold);border:2px solid var(--earth-dark);box-shadow:0 0 0 4px rgba(201,168,76,.2)}
 .storia-node:nth-child(odd)::after{right:-5px}
 .storia-node:nth-child(even)::after{left:-5px}
-.storia-node-year{font-family:var(--font-display);font-size:2.8rem;color:rgba(200,184,154,.18);font-weight:var(--weight-light);line-height:1;margin-bottom:.5rem;display:block}
+.storia-node-year{font-family:var(--font-display);font-size:2.8rem;color:rgba(201,168,76,.38);font-weight:var(--weight-light);line-height:1;margin-bottom:.5rem;display:block}
 .storia-node-title{font-family:var(--font-display);font-size:var(--text-lg);color:var(--stone-light);font-weight:var(--weight-regular);margin-bottom:.7rem}
-.storia-node-text{font-size:var(--text-sm);line-height:var(--leading-relaxed);color:rgba(200,184,154,.5);font-weight:var(--weight-light)}
+.storia-node-text{font-size:var(--text-sm);line-height:var(--leading-relaxed);color:rgba(200,184,154,.78);font-weight:var(--weight-light)}
 .storia-prose{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:5rem;padding-top:5rem;border-top:1px solid rgba(200,184,154,.1);align-items:start}
-.storia-prose-text{font-size:var(--text-sm);line-height:var(--leading-loose);color:rgba(200,184,154,.55);font-weight:var(--weight-light)}
+.storia-prose-text{font-size:var(--text-sm);line-height:var(--leading-loose);color:rgba(200,184,154,.8);font-weight:var(--weight-light)}
 .storia-prose-text p+p{margin-top:1.2rem}
 .storia-prose-text strong{color:var(--stone);font-weight:var(--weight-regular)}
 .storia-facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(200,184,154,.1);border:1px solid rgba(200,184,154,.1)}
@@ -208,6 +209,29 @@ section{padding:var(--section-py) var(--section-px)}
 .storia-owner-avatar img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .storia-owner-quote{font-family:var(--font-display);font-size:var(--text-md);font-style:italic;color:var(--stone-light);line-height:var(--leading-normal);font-weight:var(--weight-light);margin-bottom:.5rem}
 .storia-owner-name{font-size:var(--text-label);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--stone-dark)}
+
+/* ── STORIA · SCROLL ANIMATIONS ── */
+
+/* Museum photo clip-path reveal */
+.storia-museo-item.revealed{clip-path:inset(0 0 0% 0)}
+
+/* Gold dot pulse on node entry */
+.storia-node::after{transition:box-shadow .6s ease}
+.storia-node.node-pulse::after{box-shadow:0 0 0 7px rgba(201,168,76,.3),0 0 28px rgba(201,168,76,.22)}
+
+/* Quote word-by-word reveal */
+.storia-quote-word{opacity:0;transform:translateY(10px);display:inline-block;transition:opacity .4s ease,transform .4s ease}
+.storia-quote-word.visible{opacity:1;transform:translateY(0)}
+
+/* Fact numbers count-up glow */
+.storia-fact-num.counting{color:var(--gold)}
+
+/* prefers-reduced-motion — disabilita tutte le animazioni storia */
+@media(prefers-reduced-motion:reduce){
+  .storia-museo-item{clip-path:none!important;transition:none!important}
+  .storia-quote-word{opacity:1!important;transform:none!important;transition:none!important}
+  .storia-node::after{transition:none!important}
+}
 
 /* ── FEATURES ── */
 .features-section{background:linear-gradient(to bottom,var(--cream-warm),var(--stone-light));padding:var(--section-py) var(--section-px)}
@@ -403,7 +427,7 @@ footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
   .storia-facts{grid-template-columns:1fr 1fr}
   .storia-owner{flex-direction:column;text-align:center}
   .storia-museo{grid-template-columns:1fr;gap:8px}
-  .storia-museo-item{height:200px}
+  .storia-museo-item{aspect-ratio:16/9}
   .features-grid{grid-template-columns:1fr}
   .feature-item{border-right:none!important;border-top:none!important;border-bottom:1px solid rgba(140,118,96,.15)}
   .feature-item:last-child{border-bottom:none}
