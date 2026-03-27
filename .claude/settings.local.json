@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Read(//c/Users/difel/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.5.0/**)",
+      "Bash(python3 scripts/search.py \"heritage luxury agriturismo historic rustic warm\" --design-system -f markdown)",
+      "Bash(py -3 --version)",
+      "Bash(py -3 \"C:\\\\Users\\\\difel\\\\.claude\\\\plugins\\\\cache\\\\ui-ux-pro-max-skill\\\\ui-ux-pro-max\\\\2.5.0\\\\scripts\\\\search.py\" \"heritage luxury historic rustic warm\" --design-system -f markdown)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(node dist/index.js \"heritage luxury historic rustic warm\" --design-system -f markdown)"
+    ]
+  }
+}

@@ -111,6 +111,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 3rem;display:
 nav.scrolled{background:rgba(245,240,232,.96);padding:.8rem 3rem;backdrop-filter:blur(8px);border-bottom:1px solid rgba(200,184,154,.3)}
 .nav-logo{font-family:var(--font-display);font-size:var(--text-xl);font-weight:var(--weight-medium);letter-spacing:var(--tracking-snug);color:var(--cream);text-decoration:none;transition:color var(--t-base)}
 nav.scrolled .nav-logo{color:var(--earth-dark)}
+.nav-logo{display:flex;align-items:center;text-decoration:none}
+.nav-logo-img{height:46px;width:auto;display:block;margin-right:8px}
+.nav-logo-scrolled{display:none}
+nav.scrolled .nav-logo-default{display:none}
+nav.scrolled .nav-logo-scrolled{display:block}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-size:var(--text-micro);letter-spacing:.16em;text-transform:uppercase;color:rgba(245,240,232,.85);text-decoration:none;transition:color var(--t-base);font-weight:var(--weight-regular)}
 nav.scrolled .nav-links a{color:var(--stone-dark)}
@@ -206,7 +211,7 @@ section{padding:var(--section-py) var(--section-px)}
 .storia-fact-label{font-size:var(--text-label);letter-spacing:.18em;text-transform:uppercase;color:var(--stone-dark);font-weight:var(--weight-light)}
 .storia-owner{grid-column:1/-1;display:flex;align-items:center;gap:2rem;padding:2.5rem;border:1px solid rgba(200,184,154,.12);margin-top:3rem;background:rgba(255,255,255,.02)}
 .storia-owner-avatar{width:72px;height:72px;border-radius:var(--radius-full);overflow:hidden;background:linear-gradient(135deg,var(--earth),var(--stone-dark));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-display);font-size:1.6rem;color:var(--cream);font-weight:var(--weight-light);border:2px solid rgba(200,184,154,.2)}
-.storia-owner-avatar img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.storia-owner-avatar img{width:140%;height:140%;object-fit:cover;object-position:center top;display:block}
 .storia-owner-quote{font-family:var(--font-display);font-size:var(--text-md);font-style:italic;color:var(--stone-light);line-height:var(--leading-normal);font-weight:var(--weight-light);margin-bottom:.5rem}
 .storia-owner-name{font-size:var(--text-label);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--stone-dark)}
 
@@ -252,7 +257,7 @@ section{padding:var(--section-py) var(--section-px)}
 .feature-desc{font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--ink-soft);font-weight:var(--weight-light)}
 
 /* ── EVENTI ── */
-.eventi-section{background:var(--cream-warm);padding:var(--section-py) var(--section-px)}
+.eventi-section{background:var(--cream);padding:var(--section-py) var(--section-px)}
 .eventi-inner{max-width:var(--inner-lg);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
 .eventi-types{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
 .eventi-type{display:flex;align-items:center;gap:.8rem;padding:.8rem 1rem;border:1px solid rgba(200,184,154,.35);background:rgba(245,240,232,.6)}
@@ -383,6 +388,7 @@ section{padding:var(--section-py) var(--section-px)}
 /* ── FOOTER ── */
 footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
 .footer-top{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.2fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(200,184,154,.1)}
+.footer-logo{display:block;height:90px;width:auto;margin-bottom:1rem;border-radius:var(--radius-sm);border:1px solid rgba(200,184,154,.12)}
 .footer-brand{font-family:var(--font-display);font-size:var(--text-xl);color:var(--stone-light);font-weight:var(--weight-light);letter-spacing:var(--tracking-snug);display:block;margin-bottom:.3rem}
 .footer-tagline{font-size:var(--text-label);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--stone-dark);margin-bottom:1.2rem}
 .footer-desc{font-size:var(--text-sm);line-height:1.75;color:rgba(200,184,154,.45);font-weight:var(--weight-light);max-width:27ch}
@@ -443,7 +449,7 @@ footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
   .eventi-types{grid-template-columns:1fr}
   .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:200px;gap:8px}
   .gallery-item{grid-column:auto;grid-row:auto}
-  .gi1,.gi4,.gi6{grid-column:1/3}
+  .gi1,.gi4{grid-column:1/3}
   .nearby-columns{grid-template-columns:1fr;gap:2px}
   .reviews-grid{grid-template-columns:1fr;gap:2px}
   .contact-inner{grid-template-columns:1fr;gap:3rem}

@@ -22,13 +22,8 @@
 .gpage-back:hover{color:var(--cream)}
 .gpage-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-.gpage-section{padding:5rem 2rem}
-.gpage-section:nth-child(odd){background:var(--cream-warm)}
-.gpage-section:nth-child(even){background:var(--stone-light)}
+.gpage-section{padding:5rem 2rem;background:linear-gradient(to bottom,var(--cream-warm) 0%,var(--stone-light) 35%,var(--cream-warm) 65%,var(--stone-light) 100%)}
 .gpage-section-inner{max-width:var(--inner-xl);margin:0 auto}
-.gpage-section-title{font-family:var(--font-display);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:var(--weight-regular);color:var(--earth-dark);margin-bottom:.5rem}
-.gpage-section-title em{font-style:italic;color:var(--earth)}
-.gpage-section-count{font-size:var(--text-label);letter-spacing:.25em;text-transform:uppercase;color:var(--stone-dark);margin-bottom:2rem}
 
 .gpage-grid{display:grid;gap:12px}
 .gpage-grid--3{grid-template-columns:repeat(3,1fr)}
@@ -82,7 +77,11 @@
 
 <!-- NAV -->
 <nav id="nav" class="scrolled">
-  <a href="index.html" class="nav-logo">Mulino Brandolini</a>
+  <a href="index.html" class="nav-logo" aria-label="Mulino Brandolini — homepage">
+    <img src="imgs/logo_dark.png" alt="Mulino Brandolini" class="nav-logo-img nav-logo-default">
+    <img src="imgs/logo_light.png" alt="Mulino Brandolini" class="nav-logo-img nav-logo-scrolled">
+    <span>Mulino Brandolini</span>
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html#about">La Struttura</a></li>
     <li><a href="index.html#storia">Storia</a></li>
@@ -113,13 +112,11 @@
   </div>
 </div>
 
-<!-- PISCINA & OUTDOOR -->
+<!-- GALLERIA UNIFICATA -->
 <div class="gpage-section">
   <div class="gpage-section-inner">
-    <p class="gpage-section-count">Sezione 01</p>
-    <h2 class="gpage-section-title">Piscina <em>&amp; outdoor</em></h2>
     <div class="gpage-grid gpage-grid--3">
-      <div class="gpage-item gpage-item--featured ar-landscape" data-caption="Piscina privata con drinks — estate al Mulino Brandolini">
+      <div class="gpage-item ar-landscape" data-caption="Piscina privata con drinks — estate al Mulino Brandolini">
         <picture>
           <source srcset="imgs/IMG_7047.webp" type="image/webp">
           <img src="imgs/IMG_7047.jpg" alt="Piscina privata del Mulino Brandolini con frutta fresca e drinks in una giornata d'estate" loading="lazy">
@@ -140,17 +137,7 @@
         </picture>
         <div class="gpage-label">Piscina · Vista panoramica</div>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- ESTERNO -->
-<div class="gpage-section">
-  <div class="gpage-section-inner">
-    <p class="gpage-section-count">Sezione 02</p>
-    <h2 class="gpage-section-title">Esterni <em>&amp; architettura</em></h2>
-    <div class="gpage-grid gpage-grid--3">
-      <div class="gpage-item gpage-item--featured ar-landscape" data-caption="Vista aerea del Mulino Brandolini immerso nel verde">
+      <div class="gpage-item ar-landscape" data-caption="Vista aerea del Mulino Brandolini immerso nel verde">
         <picture>
           <source srcset="imgs/IMG_5306.JPG.webp" type="image/webp">
           <img src="imgs/IMG_5306.JPG.jpeg" alt="Vista aerea del Mulino Brandolini immerso nel verde delle colline abruzzesi" loading="lazy">
@@ -192,16 +179,6 @@
         </picture>
         <div class="gpage-label">Esterno · Struttura</div>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- EVENTI & PORTICO -->
-<div class="gpage-section">
-  <div class="gpage-section-inner">
-    <p class="gpage-section-count">Sezione 03</p>
-    <h2 class="gpage-section-title">Portico <em>&amp; eventi</em></h2>
-    <div class="gpage-grid gpage-grid--2">
       <div class="gpage-item ar-landscape" data-caption="Portico allestito per celebrazioni — Mulino Brandolini">
         <picture>
           <source srcset="imgs/IMG_0687.webp" type="image/webp">
@@ -230,17 +207,7 @@
         </picture>
         <div class="gpage-label">Esterno · Giardino</div>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- SPAZI COMUNI -->
-<div class="gpage-section">
-  <div class="gpage-section-inner">
-    <p class="gpage-section-count">Sezione 04</p>
-    <h2 class="gpage-section-title">Spazi comuni <em>&amp; interni</em></h2>
-    <div class="gpage-grid gpage-grid--3">
-      <div class="gpage-item gpage-item--featured ar-landscape" data-caption="Sala comune con camino in pietra — Mulino Brandolini">
+      <div class="gpage-item ar-landscape" data-caption="Sala comune con camino in pietra — Mulino Brandolini">
         <picture>
           <source srcset="imgs/IMG_3908.webp" type="image/webp">
           <img src="imgs/IMG_3908.jpg" alt="Salone comune con grande camino in pietra, cucina e tavolo da pranzo del Mulino Brandolini" loading="lazy">
@@ -261,16 +228,6 @@
         </picture>
         <div class="gpage-label">Inverno · Atmosfera natalizia</div>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- CAMERE -->
-<div class="gpage-section">
-  <div class="gpage-section-inner">
-    <p class="gpage-section-count">Sezione 05</p>
-    <h2 class="gpage-section-title">Camere <em>&amp; notti</em></h2>
-    <div class="gpage-grid gpage-grid--4">
       <div class="gpage-item ar-landscape" data-caption="Camera matrimoniale con travi — Mulino Brandolini">
         <picture>
           <source srcset="imgs/IMG_3911.webp" type="image/webp">
@@ -341,16 +298,6 @@
         </picture>
         <div class="gpage-label">Camera · Soffitto in legno</div>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- GASTRONOMIA -->
-<div class="gpage-section">
-  <div class="gpage-section-inner">
-    <p class="gpage-section-count">Sezione 06</p>
-    <h2 class="gpage-section-title">Gastronomia <em>&amp; sapori</em></h2>
-    <div class="gpage-grid gpage-grid--3">
       <div class="gpage-item ar-landscape" data-caption="Arrosticini abruzzesi — Mulino Brandolini">
         <picture>
           <source srcset="imgs/IMG_5296.webp" type="image/webp">
@@ -372,16 +319,6 @@
         </picture>
         <div class="gpage-label">Grigliata serale</div>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- MUSEO DEL MULINO -->
-<div class="gpage-section">
-  <div class="gpage-section-inner">
-    <p class="gpage-section-count">Sezione 07</p>
-    <h2 class="gpage-section-title">Museo <em>del mulino</em></h2>
-    <div class="gpage-grid gpage-grid--2">
       <div class="gpage-item ar-landscape" data-caption="Macchinari originali del mulino ad acqua — Mulino Brandolini">
         <picture>
           <source srcset="imgs/IMG_5310.JPG.webp" type="image/webp">
@@ -414,6 +351,7 @@
 <footer>
   <div class="footer-top">
     <div>
+      <img src="imgs/logo_original.png" alt="Illustrazione del Mulino Brandolini" class="footer-logo">
       <span class="footer-brand">Mulino Brandolini</span>
       <p class="footer-tagline">Casa Vacanze · Via De Contra 23 · Vicoli (PE)</p>
       <p class="footer-desc">Un ottocentesco mulino ad acqua sul torrente Nora, trasformato in un rifugio autentico nel cuore dell'Abruzzo.</p>
@@ -421,11 +359,11 @@
         <a href="https://www.facebook.com/mulinobrandolini/" target="_blank" rel="noopener" aria-label="Facebook">
           <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
-        <a href="#" aria-label="Instagram">
+        <!-- <a href="#" aria-label="Instagram">
           <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
+        </a> -->
         <a href="https://wa.me/393356799679" target="_blank" rel="noopener" aria-label="WhatsApp">
-          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         </a>
       </div>
     </div>
@@ -436,7 +374,9 @@
         <li><a href="index.html#storia">Storia e Radici</a></li>
         <li><a href="index.html#eventi">Eventi</a></li>
         <li><a href="index.html#gallery">Galleria</a></li>
+        <li><a href="galleria.html">Galleria completa</a></li>
         <li><a href="index.html#dintorni">Dintorni</a></li>
+        <li><a href="index.html#recensioni">Recensioni</a></li>
         <li><a href="index.html#prenota">Prenota</a></li>
         <li><a href="index.html#contatti">Contatti</a></li>
       </ul>
@@ -462,12 +402,12 @@
       </div>
       <div class="footer-contact-item">
         <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <span><a href="mailto:info@mulinobrandolini.it">info@mulinobrandolini.it</a></span>
+        <span><a href="mailto:mulinobrando@gmail.com">mulinobrando@gmail.com</a></span>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2025 Mulino Brandolini · Gabriele Brandolini · Lic. 068045CVP0002</p>
+    <p class="footer-copy">© 2026 Mulino Brandolini · Gabriele Brandolini · Powered by GRY Brokers</p>
     <div class="footer-bottom-links">
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="cookie-policy.html">Cookie Policy</a>
