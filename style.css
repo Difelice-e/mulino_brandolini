@@ -256,6 +256,18 @@ section{padding:var(--section-py) var(--section-px)}
 .feature-title{font-family:var(--font-display);font-size:var(--text-lg);color:var(--earth-dark);margin-bottom:.6rem;font-weight:var(--weight-regular)}
 .feature-desc{font-size:var(--text-sm);line-height:var(--leading-relaxed);color:var(--ink-soft);font-weight:var(--weight-light)}
 
+/* ── NATURA ── */
+.natura-section{position:relative;min-height:85vh;background:url('imgs/nature_1.webp') center 40% / cover no-repeat;display:flex;align-items:center;padding:var(--section-py) var(--section-px)}
+.natura-section::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,20,10,.72) 0%,rgba(10,20,10,.45) 55%,rgba(10,20,10,.15) 100%);z-index:0}
+.natura-inner{position:relative;z-index:1;max-width:600px;margin:0 auto 0 8%}
+.natura-section .section-label{color:rgba(255,255,255,.65)}
+.natura-section .section-title{color:#fff}
+.natura-section .section-title em{color:rgba(255,255,255,.75)}
+.natura-section .divider{background:rgba(255,255,255,.35)}
+.natura-section .section-body{color:rgba(255,255,255,.82)}
+.natura-tags{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.natura-tag{font-size:var(--text-xs);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.4);padding:.35em .9em;border-radius:50px;font-family:var(--font-body);backdrop-filter:blur(4px);background:rgba(255,255,255,.08)}
+
 /* ── EVENTI ── */
 .eventi-section{background:var(--cream);padding:var(--section-py) var(--section-px)}
 .eventi-inner{max-width:var(--inner-lg);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
@@ -431,6 +443,7 @@ footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
   .nav-links a{color:var(--stone-light)!important;font-size:var(--text-sm);letter-spacing:.18em}
   .about-wrap{grid-template-columns:1fr;gap:3rem;padding:4rem 1.5rem}
   .about-stack{height:320px}
+  .natura-inner{margin:0 auto;padding:0 1rem}
   .storia-section::before{display:none}
   .storia-inner{padding:5rem 1.5rem}
   .storia-timeline{grid-template-columns:1fr}
