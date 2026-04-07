@@ -475,3 +475,95 @@ footer{background:var(--earth-dark);padding:4.5rem 5rem 2rem}
   .platform-btn{justify-content:center}
 }
 @media(max-width:560px){.footer-top{grid-template-columns:1fr}}
+
+/* ──────────────────────────────────────────────────────────────
+   TOAST NOTIFICATION
+   ────────────────────────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  min-width: 280px;
+  max-width: 360px;
+  padding: 1rem 1.1rem 1rem 1rem;
+  border-radius: var(--radius-md, 6px);
+  background: var(--earth-dark);
+  border-left: 4px solid var(--gold);
+  box-shadow: 0 8px 32px rgba(26,20,16,.32), 0 2px 8px rgba(0,0,0,.18);
+  font-family: var(--font-body);
+  color: var(--cream);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(calc(100% + 2rem));
+  transition: opacity .35s ease, transform .35s cubic-bezier(.22,1,.36,1);
+}
+.toast--visible {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.toast--error {
+  border-left-color: var(--rust);
+}
+.toast--error .toast-icon {
+  color: var(--rust);
+  background: rgba(184,92,56,.18);
+}
+.toast-icon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgba(201,168,76,.18);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toast-icon svg {
+  width: 1rem;
+  height: 1rem;
+  stroke: currentColor;
+}
+.toast-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+.toast-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--cream);
+  line-height: 1.2;
+}
+.toast-msg {
+  font-size: .82rem;
+  color: var(--stone-light);
+  line-height: 1.4;
+}
+.toast-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .15rem;
+  color: var(--stone);
+  opacity: .7;
+  transition: opacity .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toast-close:hover { opacity: 1; }
+.toast-close svg { width: .9rem; height: .9rem; stroke: currentColor; }
+
+@media(max-width:480px) {
+  .toast { right: 1rem; left: 1rem; min-width: 0; max-width: none; }
+}

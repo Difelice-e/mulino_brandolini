@@ -25,18 +25,85 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
-// Form submit
+// ──────────────────────────────────────────────────────────────
+//  TOAST — notifica custom
+// ──────────────────────────────────────────────────────────────
+let _toastTimer = null;
+
+function showToast(title, msg, type) {
+  const toast = document.getElementById('toastNotification');
+  toast.querySelector('.toast-title').textContent = title;
+  toast.querySelector('.toast-msg').textContent   = msg;
+  toast.className = 'toast toast--' + type + ' toast--visible';
+  clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(() => hideToast(), 5000);
+}
+
+function hideToast() {
+  const toast = document.getElementById('toastNotification');
+  toast.classList.remove('toast--visible');
+}
+
+document.getElementById('toastNotification')
+  .querySelector('.toast-close')
+  .addEventListener('click', hideToast);
+
+// ──────────────────────────────────────────────────────────────
+//  FORM — validazione + Formspree
+// ──────────────────────────────────────────────────────────────
 document.getElementById('fconsent').addEventListener('change', function () {
   document.getElementById('btnSubmit').disabled = !this.checked;
 });
 
-function submitForm() {
-  const name  = document.getElementById('fname').value.trim();
-  const phone = document.getElementById('fphone').value.trim();
-  if (!name || !phone) { alert('Compila nome e numero di telefono per procedere.'); return; }
-  document.getElementById('contactForm').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
-}
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const fname    = document.getElementById('fname').value;
+  const fphone   = document.getElementById('fphone').value.trim();
+  const fcheckin = document.getElementById('fcheckin').value;
+  const ftime    = document.getElementById('ftime').value;
+
+  // Validazione campi obbligatori
+  const missing = [];
+  if (!fname)    missing.push('Nome');
+  if (!fphone)   missing.push('Numero di telefono');
+  if (!fcheckin) missing.push('Data check-in');
+  if (!ftime)    missing.push('Orario di arrivo');
+
+  if (missing.length) {
+    showToast('Campi mancanti', 'Compila: ' + missing.join(', ') + '.', 'error');
+    return;
+  }
+
+  const btn = document.getElementById('btnSubmit');
+  btn.disabled = true;
+  btn.textContent = 'Invio in corso…';
+
+  try {
+    const data = new FormData(this);
+    const res  = await fetch(this.action, {
+      method:  'POST',
+      body:    data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      showToast('Messaggio inviato!', 'Gabriele ti risponderà presto al numero indicato.', 'success');
+      this.reset();
+      document.getElementById('fconsent').dispatchEvent(new Event('change')); // aggiorna btn
+    } else {
+      const json = await res.json().catch(() => ({}));
+      const errMsg = (json.errors && json.errors[0] && json.errors[0].message) || 'Riprova tra qualche momento.';
+      showToast('Errore di invio', errMsg, 'error');
+      btn.disabled = false;
+      btn.textContent = 'Invia richiesta →';
+    }
+  } catch {
+    showToast('Errore di rete', 'Controlla la connessione e riprova.', 'error');
+    btn.disabled = false;
+    btn.textContent = 'Invia richiesta →';
+  }
+});
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {

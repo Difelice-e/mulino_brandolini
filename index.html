@@ -12,6 +12,20 @@
 </head>
 <body>
 
+<!-- TOAST NOTIFICATION -->
+<div id="toastNotification" class="toast" role="alert" aria-live="polite">
+  <div class="toast-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <div class="toast-body">
+    <strong class="toast-title"></strong>
+    <span class="toast-msg"></span>
+  </div>
+  <button class="toast-close" aria-label="Chiudi">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+</div>
+
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo" aria-label="Mulino Brandolini — homepage">
@@ -537,49 +551,45 @@
       <div class="contact-form">
         <h3 class="form-title">Richiedi informazioni</h3>
         <p class="form-subtitle">Gabriele ti risponde personalmente entro poche ore</p>
-        <div id="contactForm">
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
           <div class="form-group">
             <label for="fname">Nome e Cognome <span class="required-star">*</span></label>
-            <input type="text" id="fname" placeholder="Mario Rossi" required>
+            <input type="text" id="fname" name="nome_cognome" placeholder="Mario Rossi" autocomplete="name">
           </div>
           <div class="form-group">
             <label for="fphone">Numero di telefono <span class="required-star">*</span></label>
-            <input type="tel" id="fphone" placeholder="+39 333 123 4567" required>
+            <input type="tel" id="fphone" name="telefono" placeholder="+39 333 123 4567" autocomplete="tel">
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="fcheckin">Data check-in prevista</label>
-              <input type="date" id="fcheckin">
+              <label for="fcheckin">Data check-in prevista <span class="required-star">*</span></label>
+              <input type="date" id="fcheckin" name="check_in">
             </div>
             <div class="form-group">
-              <label for="ftime">Orario di arrivo</label>
-              <select id="ftime">
+              <label for="ftime">Orario di arrivo <span class="required-star">*</span></label>
+              <select id="ftime" name="orario_arrivo">
                 <option value="">-- Seleziona --</option>
-                <option>Prima delle 14:00 (da concordare)</option>
-                <option>14:00 – 15:00</option>
-                <option>15:00 – 16:00</option>
-                <option>16:00 – 17:00</option>
-                <option>17:00 – 18:00</option>
-                <option>18:00 – 19:00</option>
-                <option>19:00 – 20:00</option>
-                <option>Dopo le 20:00 (da concordare)</option>
+                <option value="Prima delle 14:00 (da concordare)">Prima delle 14:00 (da concordare)</option>
+                <option value="14:00 – 15:00">14:00 – 15:00</option>
+                <option value="15:00 – 16:00">15:00 – 16:00</option>
+                <option value="16:00 – 17:00">16:00 – 17:00</option>
+                <option value="17:00 – 18:00">17:00 – 18:00</option>
+                <option value="18:00 – 19:00">18:00 – 19:00</option>
+                <option value="19:00 – 20:00">19:00 – 20:00</option>
+                <option value="Dopo le 20:00 (da concordare)">Dopo le 20:00 (da concordare)</option>
               </select>
             </div>
           </div>
           <div class="form-group">
             <label for="fmsg">Messaggio (facoltativo)</label>
-            <textarea id="fmsg" placeholder="Numero di persone, notti, esigenze particolari..."></textarea>
+            <textarea id="fmsg" name="messaggio" placeholder="Numero di persone, notti, esigenze particolari..."></textarea>
           </div>
           <div class="form-consent">
-            <input type="checkbox" id="fconsent">
+            <input type="checkbox" id="fconsent" name="_consent">
             <label for="fconsent">Ho letto e accetto il trattamento dei dati personali ai sensi del <a href="privacy-policy.html" target="_blank">Regolamento UE 2016/679 (GDPR)</a>. <span class="required-star">*</span></label>
           </div>
-          <button class="btn-submit" id="btnSubmit" onclick="submitForm()" disabled>Invia richiesta →</button>
-        </div>
-        <div class="form-success" id="formSuccess">
-          <div style="font-size:2rem;margin-bottom:1rem">🌿</div>
-          <strong>Grazie per averci contattato!</strong><br>Gabriele riceverà la tua richiesta e ti risponderà presto al numero indicato.
-        </div>
+          <button class="btn-submit" id="btnSubmit" type="submit" disabled>Invia richiesta →</button>
+        </form>
       </div>
     </div>
   </div>
