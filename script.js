@@ -9,13 +9,15 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
 burger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+  const isOpen = navLinks.classList.toggle('open');
   burger.classList.toggle('open');
+  burger.setAttribute('aria-expanded', isOpen);
 });
 document.querySelectorAll('.nav-links a').forEach(a => {
   a.addEventListener('click', () => {
     navLinks.classList.remove('open');
     burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
   });
 });
 

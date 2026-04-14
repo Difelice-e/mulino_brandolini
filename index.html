@@ -6,7 +6,8 @@
 <title>Casa Vacanze Mulino Brandolini — Vicoli (PE)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Alegreya+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="imgs/IMG_5306.JPG.webp" type="image/webp" fetchpriority="high">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
 <style>
@@ -146,7 +147,7 @@
     <li><a href="#prenota">Prenota</a></li>
     <li><a href="#contatti">Contatti</a></li>
   </ul>
-  <button class="burger" id="burger" aria-label="Menu">
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
     <span></span>
     <span></span>
     <span></span>
@@ -157,7 +158,7 @@
 <section class="hero">
   <picture>
     <source srcset="imgs/IMG_5306.JPG.webp" type="image/webp">
-    <img class="hero-img" src="imgs/IMG_5306.JPG.jpeg" alt="Vista aerea del Mulino Brandolini immerso nel verde delle colline abruzzesi" loading="eager">
+    <img class="hero-img" src="imgs/IMG_5306.JPG.jpeg" alt="Vista aerea del Mulino Brandolini immerso nel verde delle colline abruzzesi" loading="eager" fetchpriority="high">
   </picture>
   <div class="hero-overlay"></div>
   <svg class="hero-wheel" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -450,10 +451,10 @@
   </div>
   <div class="natura-strip">
     <div class="natura-strip-item fade-in">
-      <img src="imgs/rocca_calascio_1.jpeg" alt="Rocca Calascio — borgo medievale tra le montagne abruzzesi" loading="lazy">
+      <img src="imgs/natura_1.jpg" alt="Cascata naturale sul torrente Nora nel Parco Fluviale" loading="lazy">
     </div>
     <div class="natura-strip-item fade-in fd1">
-      <img src="imgs/natura_1.jpg" alt="Cascata naturale sul torrente Nora nel Parco Fluviale" loading="lazy">
+      <img src="imgs/rocca_calascio_1.jpeg" alt="Rocca Calascio — borgo medievale tra le montagne abruzzesi" loading="lazy">
     </div>
     <div class="natura-strip-item fade-in fd2">
       <img src="imgs/natura_2.jpg" alt="Sentiero immerso nel bosco del Parco Fluviale del Nora" loading="lazy">
@@ -501,7 +502,10 @@
 
       <!-- Barbecue 1 -->
       <div class="gallery-item gi4">
-        <img src="imgs/IMG_5296.PNG" alt="Barbecue con canalina per arrosticini al Mulino Brandolini" loading="lazy">
+        <picture>
+          <source srcset="imgs/IMG_5296.webp" type="image/webp">
+          <img src="imgs/IMG_5296.PNG" alt="Barbecue con canalina per arrosticini al Mulino Brandolini" loading="lazy">
+        </picture>
         <div class="gallery-label">Arrosticini abruzzesi</div>
       </div>
 
