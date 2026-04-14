@@ -19,7 +19,15 @@
 .storia-mulino-item{overflow:hidden;border-radius:var(--radius-img);aspect-ratio:4/3}
 .storia-mulino-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--t-image) ease}
 .storia-mulino-item:hover img{transform:scale(1.04)}
-@media(max-width:700px){.storia-mulino-fotos{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){
+  .storia-mulino-fotos{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .storia-mulino-item:first-child{
+    grid-column:1 / -1;
+  }
+}
 
 /* ── CAMERE SECTION ── */
 .camere-section{background:var(--cream-warm);padding:var(--section-py) var(--section-px)}
