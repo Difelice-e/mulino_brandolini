@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organizza il tuo Compleanno — Casa Vacanze Mulino Brandolini</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
+<style>
+/* ── HERO COMPLEANNO ── */
+.compl-hero{position:relative;min-height:80vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--earth-dark)}
+.compl-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.compl-hero-mask{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(30,18,12,.65) 0%,rgba(30,18,12,.5) 60%,rgba(30,18,12,.85) 100%)}
+.compl-hero-content{position:relative;z-index:1;text-align:center;padding:2rem var(--section-px);max-width:700px}
+.compl-hero-content .section-label{color:rgba(255,255,255,.65)}
+.compl-hero-content .section-title{color:#fff;margin-bottom:1.2rem}
+.compl-hero-content .section-title em{color:rgba(245,220,180,.85)}
+.compl-hero-content p{color:rgba(255,255,255,.82);font-size:var(--text-body);font-weight:300;line-height:var(--leading-relaxed);max-width:52ch;margin:0 auto 2rem}
+.compl-back{display:inline-flex;align-items:center;gap:.6rem;font-size:var(--text-xs);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;margin-bottom:2.5rem;transition:color var(--t-base)}
+.compl-back:hover{color:#fff}
+.compl-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── SERVIZI COMPLEANNO ── */
+.compl-services-section{background:var(--cream-warm);padding:var(--section-py) var(--section-px)}
+.compl-services-inner{max-width:var(--inner-lg);margin:0 auto}
+.compl-services-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:3.5rem}
+.compl-service-card{padding:2.5rem;background:white;border:1px solid rgba(140,118,96,.15);transition:box-shadow var(--t-base),transform var(--t-base)}
+.compl-service-card:hover{box-shadow:0 8px 32px rgba(61,43,31,.08);transform:translateY(-3px)}
+.compl-service-card-icon{width:48px;height:48px;border:1px solid rgba(140,118,96,.25);border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;margin-bottom:1.3rem}
+.compl-service-card-icon svg{width:22px;height:22px;stroke:var(--earth);fill:none;stroke-width:1.5}
+.compl-service-card h3{font-family:var(--font-display);font-size:1.5rem;color:var(--earth-dark);margin-bottom:.6rem;font-weight:400}
+.compl-service-card p{font-size:var(--text-body);color:var(--ink-soft);font-weight:300;line-height:var(--leading-relaxed)}
+@media(max-width:700px){.compl-services-grid{grid-template-columns:1fr}}
+
+/* ── FOTO GALLERY ── */
+.compl-gallery-section{background:var(--stone-light);padding:var(--section-py) var(--section-px)}
+.compl-gallery-inner{max-width:var(--inner-lg);margin:0 auto}
+.compl-gallery-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:320px 240px;gap:8px;margin-top:3rem}
+.compl-gallery-item{overflow:hidden;border-radius:var(--radius-img)}
+.compl-gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--t-image) ease}
+.compl-gallery-item:hover img{transform:scale(1.05)}
+.compl-gallery-item--wide{grid-column:1/-1}
+@media(max-width:600px){.compl-gallery-grid{grid-template-columns:1fr;grid-template-rows:none;gap:6px}.compl-gallery-item{height:220px}.compl-gallery-item--wide{height:250px}}
+
+/* ── CTA WHATSAPP ── */
+.compl-cta-section{background:var(--earth-dark);padding:var(--section-py) var(--section-px);text-align:center}
+.compl-cta-inner{max-width:var(--inner-sm);margin:0 auto}
+.compl-cta-inner .section-label{color:var(--stone)}
+.compl-cta-inner .section-title{color:var(--cream);margin-bottom:1rem}
+.compl-cta-inner .section-title em{color:var(--stone-light)}
+.compl-cta-inner p{color:var(--stone-light);font-size:var(--text-body);font-weight:300;line-height:var(--leading-relaxed);max-width:48ch;margin:0 auto 2.5rem}
+.btn-whatsapp-large{display:inline-flex;align-items:center;gap:.8rem;background:var(--brand-whatsapp);color:#fff;font-family:var(--font-body);font-size:var(--text-body);font-weight:500;letter-spacing:.08em;padding:1rem 2.2rem;text-decoration:none;transition:background var(--t-base),transform var(--t-fast)}
+.btn-whatsapp-large:hover{background:var(--brand-whatsapp-dark);transform:translateY(-2px)}
+.btn-whatsapp-large svg{width:22px;height:22px;flex-shrink:0}
+.btn-contact-secondary{display:inline-flex;align-items:center;gap:.6rem;color:var(--stone-light);font-size:var(--text-sm);font-weight:300;letter-spacing:.1em;text-decoration:none;margin-top:1.2rem;transition:color var(--t-base)}
+.btn-contact-secondary:hover{color:var(--cream)}
+
+/* ── INFO STRIP ── */
+.compl-info-strip{background:var(--cream);padding:3.5rem var(--section-px)}
+.compl-info-strip-inner{max-width:var(--inner-md);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center}
+.compl-info-item{}
+.compl-info-num{font-family:var(--font-display);font-size:3rem;color:var(--earth);font-weight:300;display:block;line-height:1}
+.compl-info-label{font-size:var(--text-xs);letter-spacing:.2em;text-transform:uppercase;color:var(--stone-dark);margin-top:.4rem;display:block}
+@media(max-width:600px){.compl-info-strip-inner{grid-template-columns:1fr;gap:1.5rem}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav" class="scrolled">
+  <a href="index.html" class="nav-logo" aria-label="Casa Vacanze Mulino Brandolini — homepage">
+    <img src="imgs/logo_dark.png" alt="Mulino Brandolini" class="nav-logo-img nav-logo-default">
+    <img src="imgs/logo_light.png" alt="Mulino Brandolini" class="nav-logo-img nav-logo-scrolled">
+    <span>Mulino Brandolini</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#storia">La Struttura</a></li>
+    <li><a href="index.html#camere">Camere</a></li>
+    <li><a href="index.html#gallery">Galleria</a></li>
+    <li><a href="index.html#dintorni">Dintorni</a></li>
+    <li><a href="index.html#prenota">Prenota</a></li>
+    <li><a href="index.html#contatti">Contatti</a></li>
+  </ul>
+  <button class="burger" id="burger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<div class="compl-hero">
+  <img class="compl-hero-img" src="imgs/party_4.jpg" alt="Festa di compleanno al Mulino Brandolini con addobbi e ospiti in festa" loading="eager">
+  <div class="compl-hero-mask"></div>
+  <div class="compl-hero-content">
+    <a href="index.html#eventi" class="compl-back">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Torna alla homepage
+    </a>
+    <p class="section-label">Festeggia con noi</p>
+    <h1 class="section-title">Organizza con noi<br><em>il tuo compleanno</em></h1>
+    <p>Il Mulino Brandolini è la cornice perfetta per un compleanno indimenticabile tra storia, natura e sapori abruzzesi. Gabriele penserà a tutto.</p>
+    <a href="https://wa.me/393356799679" target="_blank" rel="noopener" class="btn-whatsapp-large">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Scrivici su WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- INFO STRIP -->
+<div class="compl-info-strip">
+  <div class="compl-info-strip-inner">
+    <div class="compl-info-item fade-in">
+      <span class="compl-info-num">10+</span>
+      <span class="compl-info-label">ospiti</span>
+    </div>
+    <div class="compl-info-item fade-in fd1">
+      <span class="compl-info-num">2</span>
+      <span class="compl-info-label">location disponibili</span>
+    </div>
+    <div class="compl-info-item fade-in fd2">
+      <span class="compl-info-num">200+</span>
+      <span class="compl-info-label">anni di storia</span>
+    </div>
+  </div>
+</div>
+
+<!-- SERVIZI -->
+<section class="compl-services-section">
+  <div class="compl-services-inner">
+    <div style="max-width:640px">
+      <p class="section-label fade-in">Cosa offriamo</p>
+      <h2 class="section-title fade-in fd1">Un compleanno<br><em>da ricordare</em></h2>
+      <div class="divider fade-in fd2"></div>
+      <p class="section-body fade-in fd2">Abbiamo pensato a tutto: tu porta i tuoi amici e la voglia di festeggiare, al resto ci pensa Gabriele. Dalla scelta della location agli addobbi personalizzati, dal barbecue alla cucina comune.</p>
+    </div>
+    <div class="compl-services-grid">
+      <div class="compl-service-card fade-in">
+        <div class="compl-service-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Location esclusiva</h3>
+        <p>Il portico in pietra dell'Ottocento, il giardino sul torrente Nora e la piscina privata sono a tua disposizione per tutta la giornata. Un set unico che non troveresti da nessun'altra parte.</p>
+      </div>
+      <div class="compl-service-card fade-in fd1">
+        <div class="compl-service-card-icon">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3>Addobbi personalizzati</h3>
+        <p>Decorazioni su misura per il tuo tema: palloncini, ghirlande, centrotavola e allestimento del portico o del giardino. Ogni compleanno merita di essere unico.</p>
+      </div>
+      <div class="compl-service-card fade-in fd1">
+        <div class="compl-service-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <h3>Cucina comune attrezzata</h3>
+        <p>Cucina completamente attrezzata per preparare i piatti del cuore. Portate le vostre ricette preferite o lasciatevi ispirare dai prodotti locali abruzzesi.</p>
+      </div>
+      <div class="compl-service-card fade-in">
+        <div class="compl-service-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Piscina privata</h3>
+        <p>La piscina privata immersa nel verde è a disposizione esclusiva del gruppo durante tutto il soggiorno. Perfetta per rendere la festa ancora più speciale nelle giornate estive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY FOTO -->
+<section class="compl-gallery-section">
+  <div class="compl-gallery-inner">
+    <p class="section-label fade-in">Le foto parlano da sole</p>
+    <h2 class="section-title fade-in fd1">L'atmosfera<br><em>delle nostre feste</em></h2>
+    <div class="compl-gallery-grid">
+      <div class="compl-gallery-item compl-gallery-item--wide fade-in">
+        <img src="imgs/party_1.jpg" alt="Festa di compleanno nel portico del Mulino Brandolini con addobbi colorati" loading="lazy">
+      </div>
+      <div class="compl-gallery-item fade-in fd1">
+        <img src="imgs/party_2.jpeg" alt="Tavola imbandita per compleanno con decorazioni nel giardino del mulino" loading="lazy">
+      </div>
+      <div class="compl-gallery-item fade-in fd2">
+        <img src="imgs/party_3.jpg" alt="Ospiti in festa nel portico in pietra del Mulino Brandolini" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA WHATSAPP -->
+<div class="compl-cta-section">
+  <div class="compl-cta-inner">
+    <p class="section-label">Pronto a festeggiare?</p>
+    <h2 class="section-title">Contatta Gabriele<br><em>su WhatsApp</em></h2>
+    <p>Raccontaci la tua idea — quante persone, che data, che tema. Gabriele ti risponderà personalmente e costruirà con te il compleanno perfetto.</p>
+    <a href="https://wa.me/393356799679?text=Ciao%20Gabriele!%20Vorrei%20organizzare%20un%20compleanno%20al%20Mulino%20Brandolini.%20Puoi%20darmi%20pi%C3%B9%20informazioni%3F" target="_blank" rel="noopener" class="btn-whatsapp-large">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Scrivi a Gabriele su WhatsApp
+    </a>
+    <br>
+    <a href="tel:+393356799679" class="btn-contact-secondary">oppure chiama il +39 335 679 9679</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="imgs/logo_original.png" alt="Mulino Brandolini" class="footer-logo">
+      <span class="footer-brand">Mulino Brandolini</span>
+      <p class="footer-tagline">Casa Vacanze · Via De Contra 23 · Vicoli (PE)</p>
+      <p class="footer-desc">Un ottocentesco mulino ad acqua sul torrente Nora, nel cuore dell'Abruzzo.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/mulinobrandolini/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://wa.me/393356799679" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-col-title">Naviga</p>
+      <ul class="footer-col-links">
+        <li><a href="index.html#storia">La Struttura</a></li>
+        <li><a href="index.html#camere">Le Camere</a></li>
+        <li><a href="index.html#gallery">Galleria</a></li>
+        <li><a href="index.html#dintorni">Dintorni</a></li>
+        <li><a href="index.html#eventi">Compleanni</a></li>
+        <li><a href="index.html#recensioni">Recensioni</a></li>
+        <li><a href="index.html#prenota">Prenota</a></li>
+        <li><a href="index.html#contatti">Contatti</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Prenota</p>
+      <ul class="footer-col-links">
+        <li><a href="https://www.booking.com/hotel/it/mulino-brandolini.it.html" target="_blank">Booking.com</a></li>
+        <li><a href="https://www.airbnb.com/rooms/1452277073727745973" target="_blank" rel="noopener">Airbnb</a></li>
+        <li><a href="index.html#contatti">Richiesta diretta</a></li>
+        <li><a href="tel:+393356799679">Chiama Gabriele</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Contatti</p>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Via De Contra, 23<br>65010 Vicoli (PE) · Abruzzo</span>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.81 19a19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.6 2.29h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.91 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span><a href="tel:+393356799679">+39 335 679 9679</a></span>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span><a href="mailto:mulinobrando@gmail.com">mulinobrando@gmail.com</a></span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Mulino Brandolini · Gabriele Brandolini · Powered by GRY Brokers</p>
+    <div class="footer-bottom-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="cookie-policy.html">Cookie Policy</a>
+      <a href="note-legali.html">Note Legali</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+// Burger
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => { navLinks.classList.toggle('open'); burger.classList.toggle('open'); });
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => { navLinks.classList.remove('open'); burger.classList.remove('open'); }));
+// Fade-in
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

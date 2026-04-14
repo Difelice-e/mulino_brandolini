@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galleria Fotografica — Mulino Brandolini · Vicoli (PE)</title>
+<title>Galleria Fotografica — Casa Vacanze Mulino Brandolini · Vicoli (PE)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
 <style>
 /* ── GALLERY PAGE SPECIFICS ── */
 .gpage-hero{padding:9rem 2rem 4rem;background:var(--earth-dark);text-align:center;position:relative;overflow:hidden}
-.gpage-hero::before{content:'';position:absolute;inset:0;background-image:url("imgs/IMG_5308.JPG.jpeg");background-size:cover;background-position:center;opacity:.18}
+.gpage-hero::before{content:'';position:absolute;inset:0;background-image:url("imgs/IMG_5306.JPG.jpeg");background-size:cover;background-position:center;opacity:.18}
 .gpage-hero-content{position:relative;z-index:1}
 .gpage-hero .section-label{color:var(--stone)}
 .gpage-hero .section-title{color:var(--cream);margin-bottom:1rem}
@@ -25,27 +25,15 @@
 .gpage-section{padding:5rem 2rem;background:linear-gradient(to bottom,var(--cream-warm) 0%,var(--stone-light) 35%,var(--cream-warm) 65%,var(--stone-light) 100%)}
 .gpage-section-inner{max-width:var(--inner-xl);margin:0 auto}
 
-.gpage-grid{display:grid;gap:12px}
-.gpage-grid--3{grid-template-columns:repeat(3,1fr)}
-.gpage-grid--4{grid-template-columns:repeat(4,1fr)}
-.gpage-grid--2{grid-template-columns:repeat(2,1fr)}
-.gpage-item{overflow:hidden;position:relative;cursor:zoom-in;border-radius:var(--radius-img)}
+.gpage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gpage-item{overflow:hidden;position:relative;cursor:zoom-in;border-radius:var(--radius-img);aspect-ratio:4/3}
 .gpage-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--t-image) ease}
 .gpage-item:hover img{transform:scale(1.05)}
 .gpage-item::after{content:'';position:absolute;inset:0;background:rgba(61,43,31,0);transition:background var(--t-slow)}
 .gpage-item:hover::after{background:rgba(61,43,31,.15)}
 .gpage-label{position:absolute;bottom:0;left:0;right:0;padding:.7rem 1rem;background:linear-gradient(to top,rgba(26,20,16,.7),transparent);color:rgba(245,240,232,.9);font-size:var(--text-micro);letter-spacing:.2em;text-transform:uppercase;font-weight:var(--weight-light);opacity:0;transition:opacity var(--t-base)}
 .gpage-item:hover .gpage-label{opacity:1}
-
-/* aspect ratios */
-.ar-landscape{aspect-ratio:16/10}
-.ar-square{aspect-ratio:1/1}
-.ar-portrait{aspect-ratio:3/4}
-.ar-wide{aspect-ratio:21/9}
-
-/* featured span */
-.gpage-item--featured{grid-column:1/3}
-.gpage-item--featured.ar-landscape{aspect-ratio:16/7}
+.gpage-item--wide{grid-column:1/3;aspect-ratio:16/7}
 
 /* lightbox */
 .lightbox{display:none;position:fixed;inset:0;z-index:9000;background:rgba(26,20,16,.95);align-items:center;justify-content:center;padding:2rem}
@@ -60,33 +48,22 @@
 .lightbox-next{right:1.5rem}
 .lightbox-nav svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-/* ── RESPONSIVE ── */
-@media(max-width:900px){
-  .gpage-grid--4{grid-template-columns:repeat(2,1fr)}
-  .gpage-grid--3{grid-template-columns:repeat(2,1fr)}
-  .gpage-item--featured{grid-column:1/3}
-}
-@media(max-width:600px){
-  .gpage-grid--4,.gpage-grid--3,.gpage-grid--2{grid-template-columns:1fr}
-  .gpage-item--featured{grid-column:auto}
-  .gpage-item--featured.ar-landscape{aspect-ratio:16/10}
-}
+@media(max-width:900px){.gpage-grid{grid-template-columns:repeat(2,1fr)}.gpage-item--wide{grid-column:1/3}}
+@media(max-width:600px){.gpage-grid{grid-template-columns:1fr}.gpage-item--wide{grid-column:auto;aspect-ratio:4/3}}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav id="nav" class="scrolled">
-  <a href="index.html" class="nav-logo" aria-label="Mulino Brandolini — homepage">
+  <a href="index.html" class="nav-logo" aria-label="Casa Vacanze Mulino Brandolini — homepage">
     <img src="imgs/logo_dark.png" alt="Mulino Brandolini" class="nav-logo-img nav-logo-default">
     <img src="imgs/logo_light.png" alt="Mulino Brandolini" class="nav-logo-img nav-logo-scrolled">
     <span>Mulino Brandolini</span>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="index.html#about">La Struttura</a></li>
-    <li><a href="index.html#storia">Storia</a></li>
-    <li><a href="index.html#eventi">Eventi</a></li>
-    <li><a href="index.html#gallery">Galleria</a></li>
+    <li><a href="index.html#storia">La Struttura</a></li>
+    <li><a href="index.html#camere">Camere</a></li>
     <li><a href="index.html#dintorni">Dintorni</a></li>
     <li><a href="index.html#recensioni">Recensioni</a></li>
     <li><a href="index.html#prenota">Prenota</a></li>
@@ -108,226 +85,113 @@
     </a>
     <p class="section-label">Galleria fotografica</p>
     <h1 class="section-title">Il Mulino<br><em>in ogni scorcio</em></h1>
-    <p>Tutte le fotografie della struttura: esterno, camere, spazi comuni, piscina, gastronomia e il museo del mulino.</p>
+    <p>Camere, cucina, salone, struttura esterna, piscina, natura e il torrente Nora — tutto il Mulino Brandolini in un colpo d'occhio.</p>
   </div>
 </div>
 
-<!-- GALLERIA UNIFICATA -->
+<!-- GALLERIA -->
 <div class="gpage-section">
   <div class="gpage-section-inner">
-    <div class="gpage-grid gpage-grid--3">
-      <div class="gpage-item ar-landscape" data-caption="Piscina privata con drinks — estate al Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_7047.webp" type="image/webp">
-          <img src="imgs/IMG_7047.jpg" alt="Piscina privata del Mulino Brandolini con frutta fresca e drinks in una giornata d'estate" loading="lazy">
-        </picture>
-        <div class="gpage-label">Piscina · Relax estivo</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Piscina privata con ombrelloni — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_5298.webp" type="image/webp">
-          <img src="imgs/IMG_5298.PNG" alt="Piscina privata con ombrelloni immersa nel verde del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Piscina · Vista generale</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Piscina vista dall'alto — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_5309.JPG.webp" type="image/webp">
-          <img src="imgs/IMG_5309.JPG.jpeg" alt="Piscina del Mulino Brandolini vista dall'alto con verde circostante e ombrelloni" loading="lazy">
-        </picture>
-        <div class="gpage-label">Piscina · Vista panoramica</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Vista aerea del Mulino Brandolini immerso nel verde">
+    <div class="gpage-grid">
+
+      <!-- 2 — Vista aerea -->
+      <div class="gpage-item fade-in fd1" data-caption="Vista aerea del Mulino Brandolini immerso nel verde">
         <picture>
           <source srcset="imgs/IMG_5306.JPG.webp" type="image/webp">
           <img src="imgs/IMG_5306.JPG.jpeg" alt="Vista aerea del Mulino Brandolini immerso nel verde delle colline abruzzesi" loading="lazy">
         </picture>
         <div class="gpage-label">Esterno · Vista aerea</div>
       </div>
-      <div class="gpage-item ar-landscape" data-caption="Facciata del Mulino Brandolini illuminata di sera">
+
+      <!-- 3 — Facciata -->
+      <div class="gpage-item fade-in fd2" data-caption="Facciata del Mulino Brandolini illuminata di sera">
         <picture>
           <source srcset="imgs/IMG_5312.JPG.webp" type="image/webp">
           <img src="imgs/IMG_5312.JPG.jpeg" alt="Facciata del Mulino Brandolini illuminata di sera con muri in pietra e archi" loading="lazy">
         </picture>
         <div class="gpage-label">Facciata · Sera</div>
       </div>
-      <div class="gpage-item ar-landscape" data-caption="Ulivo secolare nel cortile del Mulino Brandolini">
+
+      <!-- 4 — Salone con camino -->
+      <div class="gpage-item fade-in" data-caption="Salone comune con camino in pietra — Mulino Brandolini">
         <picture>
-          <source srcset="imgs/IMG_5307.JPG.webp" type="image/webp">
-          <img src="imgs/IMG_5307.JPG.jpeg" alt="Ulivo secolare illuminato nel cortile in pietra del Mulino Brandolini" loading="lazy">
+          <source srcset="imgs/IMG_3908.webp" type="image/webp">
+          <img src="imgs/IMG_3908.jpg" alt="Salone comune con grande camino in pietra, cucina e tavolo da pranzo del Mulino Brandolini" loading="lazy">
         </picture>
-        <div class="gpage-label">Cortile · Ulivo secolare</div>
+        <div class="gpage-label">Salone · Camino in pietra</div>
       </div>
-      <div class="gpage-item ar-landscape" data-caption="Portico esterno illuminato di sera — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_3910.webp" type="image/webp">
-          <img src="imgs/IMG_3910.jpg" alt="Portico esterno illuminato di sera con muro in pietra del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Portico · Serata estiva</div>
+
+      <!-- 5 — Cucina -->
+      <div class="gpage-item fade-in fd1" data-caption="Cucina comune attrezzata — Mulino Brandolini">
+        <img src="imgs/cucina_1.jpg" alt="Cucina comune del Mulino Brandolini completamente attrezzata" loading="lazy">
+        <div class="gpage-label">Cucina comune</div>
       </div>
-      <div class="gpage-item ar-landscape" data-caption="Esterno del Mulino Brandolini — luce naturale">
+
+      <!-- 6 — Camera matrimoniale 1 -->
+      <div class="gpage-item fade-in fd2" data-caption="Camera matrimoniale con travi — Mulino Brandolini">
+        <img src="imgs/camera_1_1.jpg" alt="Camera matrimoniale del Mulino Brandolini con travi in legno originali" loading="lazy">
+        <div class="gpage-label">Camera 1 · Matrimoniale</div>
+      </div>
+
+      <!-- 7 — Camera matrimoniale 2 -->
+      <div class="gpage-item fade-in" data-caption="Camera matrimoniale con pietra a vista — Mulino Brandolini">
+        <img src="imgs/camera_2_1.jpg" alt="Camera matrimoniale del Mulino Brandolini con caratteristico muro in pietra a vista" loading="lazy">
+        <div class="gpage-label">Camera 2 · Pietra a vista</div>
+      </div>
+
+      <!-- 8 — Camera doppia -->
+      <div class="gpage-item fade-in fd1" data-caption="Camera doppia — Mulino Brandolini">
+        <img src="imgs/camera_3_1.jpg" alt="Camera doppia del Mulino Brandolini con soffitto a volta in legno" loading="lazy">
+        <div class="gpage-label">Camera 3 · Doppia</div>
+      </div>
+
+      <!-- 9 — BBQ arrosticini -->
+      <div class="gpage-item fade-in fd2" data-caption="Barbecue con arrosticini — Mulino Brandolini">
+        <img src="imgs/barbecue_1.jpeg" alt="Barbecue con canalina per arrosticini al Mulino Brandolini" loading="lazy">
+        <div class="gpage-label">Barbecue · Arrosticini</div>
+      </div>
+
+            <!-- 12 — Esterno luce naturale -->
+      <div class="gpage-item fade-in fd2" data-caption="Esterno del Mulino Brandolini — luce naturale">
         <picture>
           <source srcset="imgs/IMG_5308.JPG.webp" type="image/webp">
           <img src="imgs/IMG_5308.JPG.jpeg" alt="Vista esterna del Mulino Brandolini con giardino e muri in pietra" loading="lazy">
         </picture>
         <div class="gpage-label">Esterno · Luce naturale</div>
       </div>
-      <div class="gpage-item ar-landscape" data-caption="Portico allestito per celebrazioni — Mulino Brandolini">
+
+      <!-- 1 — Piscina privata (wide, feature photo) -->
+      <div class="gpage-item fade-in" data-caption="Piscina privata — estate al Mulino Brandolini">
         <picture>
-          <source srcset="imgs/IMG_0687.webp" type="image/webp">
-          <img src="imgs/IMG_0687.jpg" alt="Portico coperto con travi in legno allestito per celebrazioni al Mulino Brandolini" loading="lazy">
+          <source srcset="imgs/IMG_7047.webp" type="image/webp">
+          <img src="imgs/IMG_7047.jpg" alt="Piscina privata del Mulino Brandolini con frutta fresca e drinks in una giornata d'estate" loading="lazy">
         </picture>
-        <div class="gpage-label">Portico · Allestimento eventi</div>
+        <div class="gpage-label">Piscina privata · Relax estivo</div>
       </div>
-      <div class="gpage-item ar-landscape" data-caption="Portico con cena di gruppo — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_0696.webp" type="image/webp">
-          <img src="imgs/IMG_0696.jpg" alt="Portico del Mulino Brandolini allestito con tavola imbandita per una cena di gruppo" loading="lazy">
-        </picture>
-        <div class="gpage-label">Portico · Cena di gruppo</div>
+
+      <!-- 10 — Natura main -->
+      <div class="gpage-item fade-in" data-caption="Parco Fluviale del Nora — Mulino Brandolini">
+        <img src="imgs/natura_main.jpeg" alt="Il Parco Fluviale del Nora con acque cristalline e vegetazione lussureggiante" loading="lazy">
+        <div class="gpage-label">Natura · Parco Fluviale</div>
       </div>
-      <div class="gpage-item ar-landscape" data-caption="Esterno con allestimento — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_0688.webp" type="image/webp">
-          <img src="imgs/IMG_0688.jpg" alt="Area esterna del Mulino Brandolini con allestimento per eventi all'aperto" loading="lazy">
-        </picture>
-        <div class="gpage-label">Esterno · Area eventi</div>
+
+      <!-- 11 — Natura 1 -->
+      <div class="gpage-item fade-in fd1" data-caption="Torrente Nora — vegetazione spontanea">
+        <img src="imgs/natura_1.jpg" alt="Acque cristalline del torrente Nora tra la vegetazione spontanea" loading="lazy">
+        <div class="gpage-label">Torrente Nora</div>
       </div>
-      <div class="gpage-item ar-landscape" data-caption="Spazi esterni — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_0689.webp" type="image/webp">
-          <img src="imgs/IMG_0689.jpg" alt="Spazi esterni del Mulino Brandolini con vista sul giardino e il torrente Nora" loading="lazy">
-        </picture>
-        <div class="gpage-label">Esterno · Giardino</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Sala comune con camino in pietra — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_3908.webp" type="image/webp">
-          <img src="imgs/IMG_3908.jpg" alt="Salone comune con grande camino in pietra, cucina e tavolo da pranzo del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Sala comune · Camino e cucina</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Cucina attrezzata — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_3903.webp" type="image/webp">
-          <img src="imgs/IMG_3903.jpg" alt="Cucina comune attrezzata con mobili in legno scuro e peperoncini appesi del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Cucina attrezzata</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Camino natalizio — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_5297.webp" type="image/webp">
-          <img src="imgs/IMG_5297.PNG" alt="Camino decorato per Natale nella sala comune del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Inverno · Atmosfera natalizia</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Camera matrimoniale con travi — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_3911.webp" type="image/webp">
-          <img src="imgs/IMG_3911.jpg" alt="Camera matrimoniale con travi in legno e lampadario in ferro del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Camera matrimoniale · Travi</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Camera con muro in pietra — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_3915.webp" type="image/webp">
-          <img src="imgs/IMG_3915.jpg" alt="Camera da letto con caratteristico muro in pietra viva del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Camera · Pietra viva</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Camera matrimoniale soffitto a volta — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_3914.webp" type="image/webp">
-          <img src="imgs/IMG_3914.jpg" alt="Camera matrimoniale con soffitto a travi e lampada in ferro del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Camera · Soffitto a volta</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Camera matrimoniale rustica — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_3900.webp" type="image/webp">
-          <img src="imgs/IMG_3900.jpg" alt="Camera matrimoniale rustica con travi in legno grezzo del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Camera · Stile rustico</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Camera doppia — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_3902.webp" type="image/webp">
-          <img src="imgs/IMG_3902.jpg" alt="Camera a due letti con soffitto in legno del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Camera doppia</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Camera doppia soffitto in legno — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_3916.webp" type="image/webp">
-          <img src="imgs/IMG_3916.jpg" alt="Camera a due letti con soffitto in legno e lampadario del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Camera doppia · Soffitto in legno</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Camera dettaglio — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_3904.webp" type="image/webp">
-          <img src="imgs/IMG_3904.jpg" alt="Camera da letto con arredi rustici e dettagli in legno del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Camera · Dettagli rustici</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Camera interno — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_3906.webp" type="image/webp">
-          <img src="imgs/IMG_3906.jpg" alt="Interno della camera da letto del Mulino Brandolini con arredi tipici abruzzesi" loading="lazy">
-        </picture>
-        <div class="gpage-label">Camera · Arredi tipici</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Camera balcone — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_3907.webp" type="image/webp">
-          <img src="imgs/IMG_3907.jpg" alt="Camera da letto con finestra sul torrente Nora del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Camera · Vista torrente</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Camera altro interno — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_3912.webp" type="image/webp">
-          <img src="imgs/IMG_3912.jpg" alt="Interno camera con soffitto in legno e arredamento rustico del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Camera · Soffitto in legno</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Arrosticini abruzzesi — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_5296.webp" type="image/webp">
-          <img src="imgs/IMG_5296.PNG" alt="Arrosticini abruzzesi alla brace nel cortile del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Arrosticini abruzzesi</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Spiedini di agnello — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_5299.webp" type="image/webp">
-          <img src="imgs/IMG_5299.PNG" alt="Spiedini di agnello appena tolti dalla brace al Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Spiedini di agnello</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Grigliata serale — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_5305.JPG.webp" type="image/webp">
-          <img src="imgs/IMG_5305.JPG.jpeg" alt="Bistecche alla griglia con brace ardente durante una serata all'aperto al Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Grigliata serale</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Macchinari originali del mulino ad acqua — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_5310.JPG.webp" type="image/webp">
-          <img src="imgs/IMG_5310.JPG.jpeg" alt="Macchinari originali del mulino ad acqua sotto volta in pietra dell'Ottocento" loading="lazy">
-        </picture>
-        <div class="gpage-label">Museo · Macchinari originali</div>
-      </div>
-      <div class="gpage-item ar-landscape" data-caption="Macina in pietra originale — Mulino Brandolini">
-        <picture>
-          <source srcset="imgs/IMG_5311.JPG.webp" type="image/webp">
-          <img src="imgs/IMG_5311.JPG.jpeg" alt="Macina in pietra originale con meccanismo in ferro del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gpage-label">Museo · Macina in pietra</div>
-      </div>
+
     </div>
   </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lbClose">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lbPrev"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <img class="lightbox-img" id="lbImg" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lbNext"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+  <div class="lightbox-caption" id="lbCaption"></div>
 </div>
 
 <!-- CTA -->
@@ -352,9 +216,6 @@
         <a href="https://www.facebook.com/mulinobrandolini/" target="_blank" rel="noopener" aria-label="Facebook">
           <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
-        <!-- <a href="#" aria-label="Instagram">
-          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a> -->
         <a href="https://wa.me/393356799679" target="_blank" rel="noopener" aria-label="WhatsApp">
           <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         </a>
@@ -363,13 +224,11 @@
     <div>
       <p class="footer-col-title">Naviga</p>
       <ul class="footer-col-links">
-        <li><a href="index.html#about">La Struttura</a></li>
-        <li><a href="index.html#storia">Storia e Radici</a></li>
-        <li><a href="index.html#eventi">Eventi</a></li>
+        <li><a href="index.html#storia">La Struttura</a></li>
+        <li><a href="index.html#camere">Le Camere</a></li>
         <li><a href="index.html#gallery">Galleria</a></li>
-        <li><a href="galleria.html">Galleria completa</a></li>
         <li><a href="index.html#dintorni">Dintorni</a></li>
-        <li><a href="index.html#recensioni">Recensioni</a></li>
+        <li><a href="index.html#eventi">Compleanni</a></li>
         <li><a href="index.html#prenota">Prenota</a></li>
         <li><a href="index.html#contatti">Contatti</a></li>
       </ul>
@@ -393,10 +252,6 @@
         <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.81 19a19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.6 2.29h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.91 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         <span><a href="tel:+393356799679">+39 335 679 9679</a></span>
       </div>
-      <div class="footer-contact-item">
-        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <span><a href="mailto:mulinobrando@gmail.com">mulinobrando@gmail.com</a></span>
-      </div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -409,84 +264,53 @@
   </div>
 </footer>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizzatore immagini">
-  <button class="lightbox-close" id="lbClose" aria-label="Chiudi">&times;</button>
-  <button class="lightbox-nav lightbox-prev" id="lbPrev" aria-label="Precedente">
-    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-  </button>
-  <img class="lightbox-img" id="lbImg" src="" alt="">
-  <button class="lightbox-nav lightbox-next" id="lbNext" aria-label="Successiva">
-    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-  </button>
-  <p class="lightbox-caption" id="lbCaption"></p>
-</div>
-
 <script>
-(function(){
-  var nav=document.getElementById('nav');
-  var burger=document.getElementById('burger');
-  var links=document.getElementById('navLinks');
-  // nav already scrolled on subpages
-  burger.addEventListener('click',function(){
-    burger.classList.toggle('open');
-    links.classList.toggle('open');
-  });
+// Nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => { navLinks.classList.toggle('open'); burger.classList.toggle('open'); });
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => { navLinks.classList.remove('open'); burger.classList.remove('open'); }));
 
-  // Lightbox
-  var items=document.querySelectorAll('.gpage-item');
-  var lb=document.getElementById('lightbox');
-  var lbImg=document.getElementById('lbImg');
-  var lbCaption=document.getElementById('lbCaption');
-  var current=0;
-  var allItems=Array.from(items);
+// Fade-in
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
-  function openLb(idx){
-    current=idx;
-    var el=allItems[idx];
-    var img=el.querySelector('img');
-    var webpSrc=el.querySelector('source');
-    lbImg.src=webpSrc?webpSrc.srcset:img.src;
-    lbImg.alt=img.alt;
-    lbCaption.textContent=el.dataset.caption||'';
-    lb.classList.add('open');
-    document.body.style.overflow='hidden';
-  }
-  function closeLb(){
-    lb.classList.remove('open');
-    document.body.style.overflow='';
-  }
-  items.forEach(function(el,i){
-    el.addEventListener('click',function(){openLb(i);});
-  });
-  document.getElementById('lbClose').addEventListener('click',closeLb);
-  document.getElementById('lbPrev').addEventListener('click',function(){
-    openLb((current-1+allItems.length)%allItems.length);
-  });
-  document.getElementById('lbNext').addEventListener('click',function(){
-    openLb((current+1)%allItems.length);
-  });
-  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
-  document.addEventListener('keydown',function(e){
-    if(!lb.classList.contains('open'))return;
-    if(e.key==='Escape')closeLb();
-    if(e.key==='ArrowLeft')openLb((current-1+allItems.length)%allItems.length);
-    if(e.key==='ArrowRight')openLb((current+1)%allItems.length);
-  });
+// Lightbox
+const items   = Array.from(document.querySelectorAll('.gpage-item'));
+const lb      = document.getElementById('lightbox');
+const lbImg   = document.getElementById('lbImg');
+const lbCap   = document.getElementById('lbCaption');
+let current   = 0;
 
-  // Fade-in on scroll
-  var fadeEls=document.querySelectorAll('.gpage-grid');
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';}
-    });
-  },{threshold:0.08});
-  fadeEls.forEach(function(el){
-    el.style.opacity='0';el.style.transform='translateY(24px)';
-    el.style.transition='opacity .6s ease, transform .6s ease';
-    io.observe(el);
-  });
-})();
+function openLb(index) {
+  current = index;
+  const item  = items[index];
+  const img   = item.querySelector('img');
+  lbImg.src   = img.src;
+  lbImg.alt   = img.alt;
+  lbCap.textContent = item.dataset.caption || '';
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+function prevLb() { openLb((current - 1 + items.length) % items.length); }
+function nextLb() { openLb((current + 1) % items.length); }
+
+items.forEach((item, i) => item.addEventListener('click', () => openLb(i)));
+document.getElementById('lbClose').addEventListener('click', closeLb);
+document.getElementById('lbPrev').addEventListener('click', prevLb);
+document.getElementById('lbNext').addEventListener('click', nextLb);
+lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft') prevLb();
+  if (e.key === 'ArrowRight') nextLb();
+});
 </script>
 </body>
 </html>

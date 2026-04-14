@@ -3,12 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mulino Brandolini — Casa Vacanze a Vicoli (PE)</title>
+<title>Casa Vacanze Mulino Brandolini — Vicoli (PE)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
+<style>
+/* ── HERO TITLE ── */
+.hero-title-top{display:block;font-size:clamp(2rem,4vw,3.5rem);font-weight:300;letter-spacing:.06em;color:rgba(255,255,255,.9);margin-bottom:.25rem;font-style:normal;line-height:1.1}
+
+/* ── STORIA MULINO PHOTOS ── */
+.storia-mulino-fotos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:3rem 0 2.5rem}
+.storia-mulino-item{overflow:hidden;border-radius:var(--radius-img);aspect-ratio:4/3}
+.storia-mulino-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--t-image) ease}
+.storia-mulino-item:hover img{transform:scale(1.04)}
+@media(max-width:700px){.storia-mulino-fotos{grid-template-columns:1fr 1fr}}
+
+/* ── CAMERE SECTION ── */
+.camere-section{background:var(--cream-warm);padding:var(--section-py) var(--section-px)}
+.camere-inner{max-width:var(--inner-lg);margin:0 auto}
+.camere-header{text-align:center;margin-bottom:4rem}
+.camere-list{display:flex;flex-direction:column;gap:5rem}
+.camera-card{display:grid;grid-template-columns:1.3fr 1fr;gap:3.5rem;align-items:center}
+.camera-card:nth-child(even){direction:rtl}
+.camera-card:nth-child(even)>*{direction:ltr}
+.camera-photos-grid{display:grid;gap:8px}
+.camera-photos-grid.single img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:var(--radius-img)}
+.camera-photos-grid.duo{grid-template-columns:1fr 1fr}
+.camera-photos-grid.duo .cam-main{grid-column:1/-1;aspect-ratio:16/9}
+.camera-photos-grid.duo .cam-sub{aspect-ratio:4/3}
+.cam-photo{overflow:hidden;border-radius:var(--radius-img)}
+.cam-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--t-image) ease}
+.cam-photo:hover img{transform:scale(1.04)}
+.camera-badge{display:inline-block;font-size:var(--text-micro);letter-spacing:.22em;text-transform:uppercase;color:var(--stone-dark);border:1px solid rgba(140,118,96,.4);padding:.2rem .75rem;margin-bottom:1rem}
+.camera-name{font-family:var(--font-display);font-size:clamp(1.7rem,2.5vw,2.3rem);color:var(--earth-dark);margin-bottom:.4rem;font-weight:400;line-height:var(--leading-snug)}
+.camera-name em{font-style:italic;color:var(--earth)}
+.camera-desc{font-size:var(--text-body);color:var(--ink-soft);font-weight:300;line-height:var(--leading-relaxed);margin-top:.8rem}
+.camera-feats{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
+.camera-feat{font-size:var(--text-micro);letter-spacing:.12em;text-transform:uppercase;color:var(--stone-dark);padding:.2rem .6rem;background:rgba(140,118,96,.1);border-radius:var(--radius-sm)}
+.camera-divider{border:none;border-top:1px solid rgba(140,118,96,.15);margin:0}
+@media(max-width:900px){.camera-card{grid-template-columns:1fr;gap:2rem}.camera-card:nth-child(even){direction:ltr}}
+
+/* ── SPAZI (CUCINA/SALONE) ── */
+.spazi-section{background:var(--earth-dark);padding:var(--section-py) var(--section-px)}
+.spazi-inner{max-width:var(--inner-lg);margin:0 auto}
+.spazi-header{text-align:center;margin-bottom:3.5rem}
+.spazi-header .section-label{color:var(--stone)}
+.spazi-header .section-title{color:var(--cream)}
+.spazi-header .section-title em{color:var(--stone-light)}
+.spazi-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.spazio-card{background:rgba(255,255,255,.04);border:1px solid rgba(200,184,154,.1);overflow:hidden}
+.spazio-photo{overflow:hidden;aspect-ratio:4/3}
+.spazio-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--t-image) ease}
+.spazio-card:hover .spazio-photo img{transform:scale(1.04)}
+.spazio-body{padding:2rem}
+.spazio-title{font-family:var(--font-display);font-size:1.9rem;color:var(--cream);margin-bottom:.7rem;font-weight:400}
+.spazio-desc{font-size:var(--text-body);color:var(--stone-light);font-weight:300;line-height:var(--leading-relaxed)}
+@media(max-width:700px){.spazi-grid{grid-template-columns:1fr}}
+
+/* ── NATURA NEW LAYOUT ── */
+.natura-new-section{background:var(--ink);overflow:hidden;padding: var(--section-py) 0}
+.natura-hero-wrap{position:relative;min-height:calc(100vh - 420px);overflow:hidden;display:flex;align-items:center}
+.natura-hero-bg{position:absolute;inset:0;width:100%;height:108%;top:-4%;object-fit:cover;transition:transform 12s ease}
+.natura-hero-wrap.natura-zoomed .natura-hero-bg{transform:scale(1.06)}
+.natura-hero-mask{position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,20,10,.8) 0%,rgba(10,20,10,.55) 50%,rgba(10,20,10,.2) 100%)}
+.natura-hero-content{position:relative;z-index:1;padding:0 var(--section-px);max-width:620px;margin-left:max(4rem,8%)}
+.natura-hero-content .section-label{color:rgba(255,255,255,.6)}
+.natura-hero-content .section-title{color:#fff}
+.natura-hero-content .section-title em{color:rgba(200,220,190,.8)}
+.natura-hero-content .divider{background:rgba(255,255,255,.28);margin:1.5rem 0}
+.natura-hero-content .section-body{color:rgba(255,255,255,.82)}
+.natura-tags-wrap{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.natura-tag-n{font-size:var(--text-micro);letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.2);padding:.3rem .85rem;transition:border-color var(--t-base),color var(--t-base)}
+.natura-tag-n:hover{color:#fff;border-color:rgba(255,255,255,.5)}
+.natura-strip{display:grid;grid-template-columns:1.6fr 1fr 1fr;height:360px;gap:3px}
+.natura-strip-item{overflow:hidden;position:relative}
+.natura-strip-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--t-image) ease,filter .5s ease}
+.natura-strip-item::after{content:'';position:absolute;inset:0;background:rgba(10,20,10,.15);transition:background var(--t-slow)}
+.natura-strip-item:hover img{transform:scale(1.07)}
+.natura-strip-item:hover::after{background:rgba(10,20,10,0)}
+@media(max-width:700px){.natura-strip{grid-template-columns:1fr;height:auto}.natura-strip-item{height:180px}}
+
+/* ── EVENTI COMPLEANNI ── */
+.compleanno-section{background:var(--cream-warm);padding:var(--section-py) var(--section-px)}
+.compleanno-inner{max-width:var(--inner-lg);margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:4.5rem;align-items:center}
+.compleanno-photos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:260px 190px;gap:8px}
+.compl-photo{overflow:hidden;border-radius:var(--radius-img)}
+.compl-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--t-image) ease}
+.compl-photo:hover img{transform:scale(1.05)}
+.compl-photo--main{grid-column:1/-1}
+.compl-photo--a,.compl-photo--b{}
+.compleanno-tag{display:inline-block;font-size:var(--text-micro);letter-spacing:.22em;text-transform:uppercase;color:var(--stone-dark);border:1px solid rgba(140,118,96,.4);padding:.2rem .8rem;margin-bottom:1rem}
+.compleanno-services{margin-top:1.5rem;display:flex;flex-direction:column;gap:.9rem}
+.compl-service{display:flex;align-items:flex-start;gap:.85rem}
+.compl-service-icon{width:34px;height:34px;border:1px solid rgba(140,118,96,.25);border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.05rem}
+.compl-service-icon svg{width:14px;height:14px;stroke:var(--earth);fill:none;stroke-width:2}
+.compl-service-text{font-size:var(--text-body);color:var(--ink-soft);font-weight:300;line-height:var(--leading-normal)}
+.compl-service-text strong{color:var(--earth-dark);font-weight:500}
+@media(max-width:900px){.compleanno-inner{grid-template-columns:1fr;gap:2.5rem}}
+@media(max-width:500px){.compleanno-photos{grid-template-rows:200px 150px}}
+
+/* ── FEATURES GRID 4-col ── */
+.features-grid-8{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(140,118,96,.2)}
+.features-grid-8 .feature-item{border-right:1px solid rgba(140,118,96,.2)}
+.features-grid-8 .feature-item:nth-child(4n){border-right:none}
+.features-grid-8 .feature-item:nth-child(n+5){border-top:1px solid rgba(140,118,96,.2)}
+@media(max-width:900px){.features-grid-8{grid-template-columns:repeat(2,1fr)}.features-grid-8 .feature-item:nth-child(2n){border-right:none}.features-grid-8 .feature-item:nth-child(n+3){border-top:1px solid rgba(140,118,96,.2)}.features-grid-8 .feature-item:nth-child(2){border-right:none}.features-grid-8 .feature-item:nth-child(4){border-right:none}}
+@media(max-width:500px){.features-grid-8{grid-template-columns:1fr}.features-grid-8 .feature-item{border-right:none!important;border-top:none!important;border-bottom:1px solid rgba(140,118,96,.15)}.features-grid-8 .feature-item:last-child{border-bottom:none}}
+</style>
 </head>
 <body>
 
@@ -28,16 +131,16 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-logo" aria-label="Mulino Brandolini — homepage">
-    <img src="imgs/logo_dark.png" alt="Mulino Brandolini" class="nav-logo-img nav-logo-default">
-    <img src="imgs/logo_light.png" alt="Mulino Brandolini" class="nav-logo-img nav-logo-scrolled">
+  <a href="#" class="nav-logo" aria-label="Casa Vacanze Mulino Brandolini — homepage">
+    <img src="imgs/logo_original.png" alt="Mulino Brandolini" class="nav-logo-img nav-logo-default">
+    <img src="imgs/logo_original.png" alt="Mulino Brandolini" class="nav-logo-img nav-logo-scrolled">
     <span>Mulino Brandolini</span>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#about">La Struttura</a></li>
     <li><a href="#storia">Storia</a></li>
-    <li><a href="#eventi">Eventi</a></li>
+    <li><a href="#camere">Camere</a></li>
     <li><a href="#gallery">Galleria</a></li>
+    <li><a href="#servizi">Servizi</a></li>
     <li><a href="#dintorni">Dintorni</a></li>
     <li><a href="#recensioni">Recensioni</a></li>
     <li><a href="#prenota">Prenota</a></li>
@@ -71,8 +174,11 @@
     <rect x="177" y="85" width="18" height="30" rx="2" stroke="white" stroke-width="1.5"/>
   </svg>
   <div class="hero-content">
-    <p class="hero-eyebrow">Casa Vacanze · Vicoli (PE) · Parco Fluviale del Nora</p>
-    <h1 class="hero-title">Mulino<br><em>Brandolini</em></h1>
+    <p class="hero-eyebrow">Vicoli (PE) · Parco Fluviale del Nora</p>
+    <h1 class="hero-title">
+      <span class="hero-title-top">Casa Vacanze</span>
+      Mulino<br><em>Brandolini</em>
+    </h1>
     <p class="hero-subtitle">Un antico mulino ad acqua dell'Ottocento</p>
     <div class="hero-ctas">
       <a href="#prenota" class="btn-primary">Prenota ora</a>
@@ -80,35 +186,6 @@
     </div>
   </div>
   <div class="scroll-hint"><div class="scroll-line"></div><span>Scorri</span></div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-wrap">
-    <div class="about-stack fade-in">
-      <div class="about-main">
-        <picture>
-          <source srcset="imgs/IMG_5312.JPG.webp" type="image/webp">
-          <img src="imgs/IMG_5312.JPG.jpeg" alt="Facciata del Mulino Brandolini illuminata di sera con muri in pietra e archi" loading="lazy">
-        </picture>
-      </div>
-      <div class="about-accent">
-        <picture>
-          <source srcset="imgs/IMG_5307.JPG.webp" type="image/webp">
-          <img src="imgs/IMG_5307.JPG.jpeg" alt="Ulivo secolare illuminato nel cortile in pietra del Mulino Brandolini" loading="lazy">
-        </picture>
-      </div>
-      <div class="about-badge"><span class="sc">dal</span><span class="yr">XIX</span><span class="sc">secolo</span></div>
-    </div>
-    <div>
-      <p class="section-label fade-in">La Struttura</p>
-      <h2 class="section-title fade-in fd1">Un antico mulino<br><em>sul torrente Nora</em></h2>
-      <div class="divider fade-in fd2"></div>
-      <p class="section-body fade-in fd2">Il Mulino Brandolini è un ottocentesco mulino ad acqua posto sulla sponda del torrente Nora, perfettamente integrato nella rigogliosa natura del Parco fluviale. Acquistato nei primi dell'Ottocento dalla famiglia Brandolini, è stato di recente ristrutturato conservando tutte le attrezzature d'epoca in un piccolo museo al piano terra.</p>
-      <p class="section-body fade-in fd3" style="margin-top:1rem">La struttura di 210 m² dispone di cinque camere arredate con mobili rustici, tre bagni, una cucina comune con camino e una <strong>piscina privata</strong> immersa nel verde. Si trova a mezz'ora dalla costa adriatica e dall'aeroporto di Pescara.</p>
-      <div class="divider fade-in" style="background:var(--stone);margin-top:2rem"></div>
-    </div>
-  </div>
 </section>
 
 <!-- STORIA E RADICI -->
@@ -122,7 +199,19 @@
       <p>Ogni pietra di questo mulino porta il peso della storia. L'acqua del Nora ha mosso le macine per generazioni, scandendo il ritmo della vita contadina abruzzese. Oggi scorre ancora, ma porta con sé il racconto di chi è venuto prima.</p>
       <cite>— Gabriele Brandolini, quarta generazione</cite>
     </div>
-    <!-- Museum photos -->
+    <!-- Foto del mulino -->
+    <div class="storia-mulino-fotos">
+      <div class="storia-mulino-item fade-in">
+        <img src="imgs/mulino_1.jpg" alt="Il Mulino Brandolini sul torrente Nora — vista esterna" loading="lazy">
+      </div>
+      <div class="storia-mulino-item fade-in fd1">
+        <img src="imgs/mulino_2.jpg" alt="Facciata in pietra del Mulino Brandolini tra la vegetazione" loading="lazy">
+      </div>
+      <div class="storia-mulino-item fade-in fd2">
+        <img src="imgs/mulino_3.jpg" alt="Dettaglio architettonico del Mulino Brandolini con archi in pietra" loading="lazy">
+      </div>
+    </div>
+    <!-- Museum photos
     <div class="storia-museo">
       <div class="storia-museo-item">
         <picture>
@@ -136,7 +225,7 @@
           <img src="imgs/IMG_5311.JPG.jpeg" alt="Macina in pietra originale con meccanismo in ferro del Mulino Brandolini" loading="lazy">
         </picture>
       </div>
-    </div>
+    </div> -->
     <!-- Timeline -->
     <div class="storia-timeline">
       <div class="storia-node fade-in">
@@ -171,7 +260,7 @@
         <div class="storia-facts">
           <div class="storia-fact"><span class="storia-fact-num">210</span><span class="storia-fact-label">m² di struttura</span></div>
           <div class="storia-fact"><span class="storia-fact-num">5</span><span class="storia-fact-label">camere</span></div>
-          <div class="storia-fact"><span class="storia-fact-num">10</span><span class="storia-fact-label">ospiti max</span></div>
+          <div class="storia-fact"><span class="storia-fact-num">10</span><span class="storia-fact-label">ospiti</span></div>
           <div class="storia-fact"><span class="storia-fact-num">200+</span><span class="storia-fact-label">anni di storia</span></div>
         </div>
         <div class="storia-owner">
@@ -191,132 +280,188 @@
   </div>
 </div>
 
+<!-- CAMERE -->
+<section id="camere" class="camere-section">
+  <div class="camere-inner">
+    <div class="camere-header">
+      <p class="section-label fade-in">Le Camere</p>
+      <h2 class="section-title fade-in fd1">Cinque camere<br><em>dal sapore autentico</em></h2>
+      <div class="divider fade-in fd2" style="margin:1.5rem auto 0;max-width:60px"></div>
+    </div>
+    <div class="camere-list">
+
+      <!-- Camera 1 — Matrimoniale -->
+      <div class="camera-card fade-in">
+        <div class="camera-photos-grid duo">
+          <div class="cam-photo cam-main" style="aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius-img)">
+            <img src="imgs/camera_2_1.jpg" alt="Camera 1 — bagno e dettagli" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+          </div>
+          <div class="cam-photo cam-sub">
+            <img src="imgs/camera_1_2.jpg" alt="Dettaglio camera 1 matrimoniale del Mulino Brandolini" loading="lazy">
+          </div>
+          <div class="cam-photo cam-sub">
+            <img src="imgs/camera_1_1.jpg" alt="Camera 1 matrimoniale del Mulino Brandolini con travi in legno" loading="lazy">
+          </div>
+        </div>
+        <div>
+          <span class="camera-badge">Camera 1</span>
+          <h3 class="camera-name">Matrimoniale<br><em>con vista sul verde</em></h3>
+          <p class="camera-desc">Ampia camera matrimoniale al piano superiore con letto matrimoniale, travi a vista e finestra affacciata sul verde circostante. Arredi in legno rustico che evocano l'atmosfera del mulino d'epoca, con tocchi di calore dati dai tessuti naturali.</p>
+          <div class="camera-feats">
+            <span class="camera-feat">Letto matrimoniale</span>
+            <span class="camera-feat">Travi a vista</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="camera-divider">
+
+      <!-- Camera 2 — Matrimoniale -->
+      <div class="camera-card fade-in">
+        <div class="camera-photos-grid duo">
+          <div class="cam-photo cam-main">
+            <img src="imgs/camera_2_1.jpg" alt="Camera 2 matrimoniale del Mulino Brandolini con muro in pietra" loading="lazy">
+          </div>
+          <div class="cam-photo cam-main">
+            <img src="imgs/camera_2_2.jpg" alt="Dettaglio camera 2 — pietra a vista e arredi rustici" loading="lazy">
+          </div>
+        </div>
+        <div>
+          <span class="camera-badge">Camera 2</span>
+          <h3 class="camera-name">Matrimoniale<br><em>con pietra a vista</em></h3>
+          <p class="camera-desc">Seconda camera matrimoniale caratterizzata da un magnifico rivestimento in pietra a vista originale del mulino. Le travi in legno grezzo e la vista sul torrente Nora regalano un'atmosfera unica e autentica.</p>
+          <div class="camera-feats">
+            <span class="camera-feat">Letto matrimoniale</span>
+            <span class="camera-feat">Pietra a vista</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="camera-divider">
+
+      <!-- Camera 3 -->
+      <div class="camera-card fade-in">
+        <div class="camera-photos-grid single">
+          <img src="imgs/camera_3_1.jpg" alt="Camera 3 del Mulino Brandolini con letto e soffitto in legno" loading="lazy">
+        </div>
+        <div>
+          <span class="camera-badge">Camera 3</span>
+          <h3 class="camera-name">Doppia</h3>
+          <p class="camera-desc">Camera con letto matrimoniale. Il soffitto a volta con travi in legno originali dell'Ottocento e la finestra panoramica sulle colline abruzzesi ne fanno un ambiente davvero speciale.</p>
+          <div class="camera-feats">
+            <span class="camera-feat">Letto matrimoniale</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="camera-divider">
+
+      <!-- Camera 4 -->
+      <div class="camera-card fade-in">
+        <div class="camera-photos-grid single">
+          <img src="imgs/camera_4_1.jpg" alt="Camera 4 del Mulino Brandolini con arredamento rustico abruzzese" loading="lazy">
+        </div>
+        <div>
+          <span class="camera-badge">Camera 4</span>
+          <h3 class="camera-name">2 Singoli</h3>
+          <p class="camera-desc">Camera singola o uso doppio con arredamento rustico abruzzese genuino. Perfetta per chi ama il relax in un contesto storico autentico, con accesso diretto al giardino e al profumo del Parco fluviale.</p>
+          <div class="camera-feats">
+            <span class="camera-feat">2 Letti singoli</span>
+            <span class="camera-feat">Arredi rustici</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="camera-divider">
+
+      <!-- Camera 5 -->
+      <div class="camera-card fade-in">
+        <div class="camera-photos-grid duo">
+          <div class="cam-photo cam-main">
+            <img src="imgs/camera_5_1.jpg" alt="Camera 5 del Mulino Brandolini — camera familiare con travatura originale" loading="lazy">
+          </div>
+          <div class="cam-photo cam-main">
+            <img src="imgs/camera_5_2.jpg" alt="Dettaglio camera 5 — letto e finestra sul parco fluviale" loading="lazy">
+          </div>
+        </div>
+        <div>
+          <span class="camera-badge">Camera 5</span>
+          <h3 class="camera-name">Doppia<br><em>vista parco fluviale</em></h3>
+          <p class="camera-desc">Camera doppia con letto matrimoniale, adatta a famiglie o piccoli gruppi. Bagno adiacente, soffitto con travatura originale e vista privilegiata sul Parco fluviale del Nora con il sussurro dell'acqua.</p>
+          <div class="camera-feats">
+            <span class="camera-feat">Matrimoniale</span>
+            <span class="camera-feat">Travatura originale</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CUCINA / SALONE -->
+<section id="spazi" class="spazi-section">
+  <div class="spazi-inner">
+    <div class="spazi-header">
+      <p class="section-label fade-in">Spazi Comuni</p>
+      <h2 class="section-title fade-in fd1">Cucina &amp; Salone<br><em>per momenti condivisi</em></h2>
+    </div>
+    <div class="spazi-grid">
+      <div class="spazio-card fade-in">
+        <div class="spazio-photo">
+          <img src="imgs/cucina_1.jpg" alt="Cucina comune del Mulino Brandolini completamente attrezzata" loading="lazy">
+        </div>
+        <div class="spazio-body">
+          <h3 class="spazio-title">Cucina Comune</h3>
+          <p class="spazio-desc">Cucina completamente attrezzata con piano cottura, forno e tutto il necessario per preparare i piatti della tradizione abruzzese. Il camino a legna crea l'atmosfera giusta per le serate invernali più fredde.</p>
+        </div>
+      </div>
+      <div class="spazio-card fade-in fd1">
+        <div class="spazio-photo">
+          <img src="imgs/saloon_1.jpg" alt="Salone comune del Mulino Brandolini con camino in pietra" loading="lazy">
+        </div>
+        <div class="spazio-body">
+          <h3 class="spazio-title">Salone</h3>
+          <p class="spazio-desc">Grande salone con tavolo da pranzo per tutti gli ospiti, zona relax e TV. Il caminetto in pietra originale è il cuore della vita comune, ideale per le riunioni serali davanti al fuoco dopo una giornata all'aria aperta.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- NATURA -->
-<section class="natura-section">
-  <div class="natura-inner fade-in">
-    <p class="section-label">Il Territorio</p>
-    <h2 class="section-title fd1">Acque cristalline<br><em>tra boschi e vallate</em></h2>
-    <div class="divider fd2"></div>
-    <p class="section-body fd2">Il Mulino Brandolini sorge sulla sponda del torrente Nora, nel cuore del Parco Fluviale che ne porta il nome. Qui l'acqua scorre limpida tra salici e pioppi secolari, creando cascate naturali e pozze cristalline che invitano alla contemplazione e al silenzio.</p>
-    <p class="section-body fd3" style="margin-top:1rem">Il paesaggio circostante alterna boschi fitti a panorami aperti sulle colline abruzzesi: dall'alto si scorge il mulino incassato nella vallata, custodito dalle montagne come in un dipinto. Sentieri naturalistici partono direttamente dalla struttura, regalando escursioni silenziose tra fauna selvatica e flora spontanea.</p>
-    <div class="natura-tags fd3">
-      <span class="natura-tag">Parco Fluviale del Nora</span>
-      <span class="natura-tag">Torrente Nora</span>
-      <span class="natura-tag">Sentieri naturalistici</span>
-      <span class="natura-tag">Fauna e flora</span>
+<section class="natura-new-section">
+  <div class="natura-hero-wrap" id="naturaHeroWrap">
+    <img class="natura-hero-bg" src="imgs/natura_main.jpeg" alt="Parco Fluviale del Nora — paesaggio incontaminato tra boschi e acque cristalline" loading="lazy">
+    <div class="natura-hero-mask"></div>
+    <div class="natura-hero-content fade-in">
+      <p class="section-label">Il Territorio</p>
+      <h2 class="section-title fd1">Acque cristalline<br><em>tra boschi e vallate</em></h2>
+      <div class="divider fd2"></div>
+      <p class="section-body fd2">Il Mulino Brandolini sorge sulla sponda del torrente Nora, nel cuore del Parco Fluviale che ne porta il nome. Qui l'acqua scorre limpida tra salici e pioppi secolari, creando cascate naturali e pozze cristalline che invitano alla contemplazione e al silenzio.</p>
+      <p class="section-body fd3" style="margin-top:.8rem">Il paesaggio circostante alterna boschi fitti a panorami aperti sulle colline abruzzesi, con sentieri naturalistici che partono direttamente dalla struttura.</p>
+      <div class="natura-tags-wrap fd3">
+        <span class="natura-tag-n">Parco Fluviale del Nora</span>
+        <span class="natura-tag-n">Torrente Nora</span>
+        <span class="natura-tag-n">Sentieri naturalistici</span>
+        <span class="natura-tag-n">Fauna e flora</span>
+      </div>
+    </div>
+  </div>
+  <div class="natura-strip">
+    <div class="natura-strip-item fade-in">
+      <img src="imgs/rocca_calascio_1.jpeg" alt="Rocca Calascio — borgo medievale tra le montagne abruzzesi" loading="lazy">
+    </div>
+    <div class="natura-strip-item fade-in fd1">
+      <img src="imgs/natura_1.jpg" alt="Cascata naturale sul torrente Nora nel Parco Fluviale" loading="lazy">
+    </div>
+    <div class="natura-strip-item fade-in fd2">
+      <img src="imgs/natura_2.jpg" alt="Sentiero immerso nel bosco del Parco Fluviale del Nora" loading="lazy">
     </div>
   </div>
 </section>
 
-<!-- EVENTI -->
-<section id="eventi" class="eventi-section">
-  <div class="eventi-inner">
-    <div class="eventi-text fade-in">
-      <p class="section-label">Organizza il tuo Evento</p>
-      <h2 class="section-title">Il luogo perfetto<br><em>per ogni celebrazione</em></h2>
-      <div class="divider"></div>
-      <p class="section-body">Il Mulino Brandolini è la cornice ideale per eventi indimenticabili: il portico in pietra, il giardino sul torrente, la piscina privata e la cucina attrezzata mettono a disposizione tutto il necessario per ogni tipo di celebrazione, dal matrimonio intimo alla cena aziendale, dal raduno di famiglia alla grigliata tra amici.</p>
-      <p class="section-body" style="margin-top:1rem">Con una capienza fino a <strong>10 ospiti in residenza</strong> e la possibilità di accogliere ospiti esterni per l'evento, il mulino si adatta a ogni esigenza. Gabriele sarà felice di aiutarti a organizzare ogni dettaglio.</p>
-      <div class="eventi-types">
-        <div class="eventi-type">
-          <div class="eventi-type-icon">
-            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </div>
-          <span>Matrimoni &amp; Cerimonie</span>
-        </div>
-        <div class="eventi-type">
-          <div class="eventi-type-icon">
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <span>Compleanni &amp; Anniversari</span>
-        </div>
-        <div class="eventi-type">
-          <div class="eventi-type-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
-          </div>
-          <span>Ritiri Aziendali</span>
-        </div>
-        <div class="eventi-type">
-          <div class="eventi-type-icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <span>Raduni di Famiglia</span>
-        </div>
-        <div class="eventi-type">
-          <div class="eventi-type-icon">
-            <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-          </div>
-          <span>Cene &amp; Grigliate</span>
-        </div>
-        <div class="eventi-type">
-          <div class="eventi-type-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <span>Pic-nic &amp; Outdoor</span>
-        </div>
-      </div>
-      <a href="#contatti" class="btn-primary" style="margin-top:2rem;display:inline-block">Richiedi disponibilità →</a>
-    </div>
-    <div class="eventi-photos fade-in fd1">
-      <div class="eventi-photo-main">
-        <picture>
-          <source srcset="imgs/IMG_0687.webp" type="image/webp">
-          <img src="imgs/IMG_0687.jpg" alt="Portico del Mulino Brandolini allestito per una celebrazione con decorazioni e tavoli imbanditi" loading="lazy">
-        </picture>
-      </div>
-      <div class="eventi-photo-secondary">
-        <picture>
-          <source srcset="imgs/IMG_0696.webp" type="image/webp">
-          <img src="imgs/IMG_0696.jpg" alt="Cena di gruppo nel portico coperto del Mulino Brandolini illuminata di sera" loading="lazy">
-        </picture>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<div id="features" class="features-section">
-  <div class="features-inner">
-    <div class="features-header">
-      <p class="section-label">I nostri servizi</p>
-      <h2 class="section-title">Tutto quello<br><em>che ti serve</em></h2>
-    </div>
-    <div class="features-grid">
-      <div class="feature-item fade-in">
-        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-        <div class="feature-title">Museo del mulino</div>
-        <div class="feature-desc">Macine, tramogge e ruota d'acqua originali dell'Ottocento visitabili al piano terra della struttura</div>
-      </div>
-      <div class="feature-item fade-in fd1">
-        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-        <div class="feature-title">Cucina comune</div>
-        <div class="feature-desc">Grande cucina attrezzata e soggiorno con camino a disposizione di tutti gli ospiti</div>
-      </div>
-      <div class="feature-item fade-in fd2">
-        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-        <div class="feature-title">Piscina privata</div>
-        <div class="feature-desc">Piscina nel verde con lettini e ombrelloni, aperta da maggio a settembre</div>
-      </div>
-      <div class="feature-item fade-in">
-        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg></div>
-        <div class="feature-title">Parco fluviale</div>
-        <div class="feature-desc">Percorsi naturalistici nel Parco del torrente Nora direttamente accessibili dalla struttura</div>
-      </div>
-      <div class="feature-item fade-in fd1">
-        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-        <div class="feature-title">Parcheggio &amp; noleggio</div>
-        <div class="feature-desc">10 posti auto gratuiti; su richiesta noleggio auto o pulmino 9 posti per escursioni e transfer dall'aeroporto di Pescara</div>
-      </div>
-      <div class="feature-item fade-in fd2">
-        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
-        <div class="feature-title">Wi-Fi gratuito</div>
-        <div class="feature-desc">Connessione Wi-Fi inclusa in tutta la struttura, TV con canali via cavo e lavatrice disponibile</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- GALLERY -->
+<!-- GALLERY / SCORCI DEL MULINO -->
 <section id="gallery" class="gallery-section">
   <div class="gallery-inner">
     <div class="gallery-header">
@@ -328,7 +473,7 @@
     </div>
     <div class="gallery-grid fade-in">
 
-      <!-- Piscina — foto di punta -->
+      <!-- Piscina -->
       <div class="gallery-item gi1">
         <picture>
           <source srcset="imgs/IMG_7047.webp" type="image/webp">
@@ -337,16 +482,15 @@
         <div class="gallery-label">Piscina privata · Relax estivo</div>
       </div>
 
-      <!-- Gastronomia -->
+      <!-- Grigliata / arrosticini -->
       <div class="gallery-item gi2">
         <picture>
-          <source srcset="imgs/IMG_5296.webp" type="image/webp">
-          <img src="imgs/IMG_5296.PNG" alt="Arrosticini abruzzesi alla brace nel cortile del Mulino Brandolini" loading="lazy">
+          <img src="imgs/barbecue_1.jpeg" alt="Arrosticini abruzzesi alla brace nel cortile del Mulino Brandolini" loading="lazy">
         </picture>
-        <div class="gallery-label">Arrosticini abruzzesi</div>
+        <div class="gallery-label">Barbecue · Arrosticini</div>
       </div>
 
-      <!-- Esterno 1 — vista aerea -->
+      <!-- Vista aerea -->
       <div class="gallery-item gi3">
         <picture>
           <source srcset="imgs/IMG_5306.JPG.webp" type="image/webp">
@@ -355,31 +499,22 @@
         <div class="gallery-label">Esterno · Vista panoramica</div>
       </div>
 
-      <!-- Esterno 2 — portico serata -->
+      <!-- Barbecue 1 -->
       <div class="gallery-item gi4">
-        <picture>
-          <source srcset="imgs/IMG_3910.webp" type="image/webp">
-          <img src="imgs/IMG_3910.jpg" alt="Portico esterno illuminato di sera con muro in pietra del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gallery-label">Portico · Serata estiva</div>
+        <img src="imgs/IMG_5296.PNG" alt="Barbecue con canalina per arrosticini al Mulino Brandolini" loading="lazy">
+        <div class="gallery-label">Arrosticini abruzzesi</div>
       </div>
 
-      <!-- Interno 1 — sala camino -->
+      <!-- Barbecue 2 -->
       <div class="gallery-item gi5">
-        <picture>
-          <source srcset="imgs/IMG_3908.webp" type="image/webp">
-          <img src="imgs/IMG_3908.jpg" alt="Salone comune con grande camino in pietra, cucina e tavolo da pranzo del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gallery-label">Sala comune · Camino</div>
+        <img src="imgs/barbecue_2.jpg" alt="Grigliata serale con il barbecue del Mulino Brandolini" loading="lazy">
+        <div class="gallery-label">Barbecue · Serata estiva</div>
       </div>
 
-      <!-- Interno 2 — camera matrimoniale -->
+      <!-- Compleanno -->
       <div class="gallery-item gi6">
-        <picture>
-          <source srcset="imgs/IMG_3911.webp" type="image/webp">
-          <img src="imgs/IMG_3911.jpg" alt="Camera matrimoniale con travi in legno e lampadario in ferro del Mulino Brandolini" loading="lazy">
-        </picture>
-        <div class="gallery-label">Camera matrimoniale · Travi d'epoca</div>
+        <img src="imgs/party_1.jpg" alt="Festa di compleanno al Mulino Brandolini con addobbi e tavola imbandita" loading="lazy">
+        <div class="gallery-label">Compleanni · Addobbi</div>
       </div>
 
     </div>
@@ -389,7 +524,59 @@
   </div>
 </section>
 
-<!-- NEARBY -->
+<!-- SERVIZI -->
+<div id="servizi" class="features-section">
+  <div class="features-inner">
+    <div class="features-header">
+      <p class="section-label">I nostri servizi</p>
+      <h2 class="section-title">Tutto quello<br><em>che ti serve</em></h2>
+    </div>
+    <div class="features-grid-8">
+      <div class="feature-item fade-in">
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+        <div class="feature-title">Museo del mulino</div>
+        <div class="feature-desc">Macine, tramogge e ruota d'acqua originali dell'Ottocento visitabili al piano terra</div>
+      </div>
+      <div class="feature-item fade-in fd1">
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+        <div class="feature-title">Cucina comune</div>
+        <div class="feature-desc">Cucina completamente attrezzata e salone con camino a disposizione di tutti gli ospiti</div>
+      </div>
+      <div class="feature-item fade-in fd2">
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="feature-title">Locale lavanderia</div>
+        <div class="feature-desc">Lavatrice dedicata agli ospiti con zona stireria per soggiorni lunghi o famiglie con bambini</div>
+      </div>
+      <div class="feature-item fade-in">
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div class="feature-title">Piscina privata</div>
+        <div class="feature-desc">Piscina nel verde con lettini e ombrelloni, aperta da maggio a settembre</div>
+      </div>
+      <div class="feature-item fade-in fd1">
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+        <div class="feature-title">Barbecue arrosticini</div>
+        <div class="feature-desc">Barbecue con canalina dedicata per cucinare gli arrosticini abruzzesi alla maniera tradizionale</div>
+      </div>
+      <div class="feature-item fade-in fd2">
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+        <div class="feature-title">Wi-Fi gratuito</div>
+        <div class="feature-desc">Connessione Wi-Fi inclusa in tutta la struttura, TV con canali via cavo</div>
+      </div>
+      <div class="feature-item fade-in">
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <div class="feature-title">Parcheggio &amp; noleggio</div>
+        <div class="feature-desc">Posti auto gratuiti; noleggio auto o pulmino per escursioni e transfer dall'aeroporto di Pescara</div>
+      </div>
+      <div class="feature-item fade-in fd1">
+        <div class="feature-icon-wrap"><svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg></div>
+        <div class="feature-title">Parco fluviale</div>
+        <div class="feature-desc">Percorsi naturalistici nel Parco del torrente Nora con accesso diretto dalla struttura</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DINTORNI -->
 <section id="dintorni" class="nearby-section">
   <div class="nearby-inner">
     <p class="section-label fade-in">Dintorni</p>
@@ -401,26 +588,23 @@
         <div class="nearby-item"><span class="nearby-name">Loreto Aprutino</span><span class="nearby-dist"><strong>10 km</strong></span></div>
         <div class="nearby-item"><span class="nearby-name">Penne</span><span class="nearby-dist"><strong>13 km</strong></span></div>
         <div class="nearby-item"><span class="nearby-name">Pescara</span><span class="nearby-dist"><strong>38 km</strong></span></div>
-        <div class="nearby-item"><span class="nearby-name">Chieti</span><span class="nearby-dist"><strong>42 km</strong></span></div>
-        <div class="nearby-item"><span class="nearby-name">L'Aquila</span><span class="nearby-dist"><strong>90 km</strong></span></div>
       </div>
       <div class="nearby-col fade-in fd1">
         <div class="nearby-col-title"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.6 1.29h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.91 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 15.92z"/></svg>Aeroporti e trasporti</div>
         <div class="nearby-item"><span class="nearby-name">Casello A25 Torre de' Passeri</span><span class="nearby-dist"><strong>15 km</strong></span></div>
         <div class="nearby-item"><span class="nearby-name">Casello A14 Pescara Nord</span><span class="nearby-dist"><strong>30 km</strong></span></div>
+        <div class="nearby-item"><span class="nearby-name">Aeroporto Internazionale Pescara</span><span class="nearby-dist"><strong>38 km</strong></span></div>
         <div class="nearby-item"><span class="nearby-name">Stazione FS Pescara</span><span class="nearby-dist"><strong>40 km</strong></span></div>
-        <div class="nearby-item"><span class="nearby-name">Aeroporto Internaz. Pescara</span><span class="nearby-dist"><strong>38 km</strong></span></div>
-        <div class="nearby-item"><span class="nearby-name">Aeroporto Roma Fiumicino</span><span class="nearby-dist"><strong>200 km</strong></span></div>
-        <div class="nearby-item"><span class="nearby-name">Aeroporto di Napoli</span><span class="nearby-dist"><strong>290 km</strong></span></div>
       </div>
       <div class="nearby-col fade-in fd2">
         <div class="nearby-col-title"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Natura e attrazioni</div>
         <div class="nearby-item"><span class="nearby-name">Parco fluviale Torrente Nora</span><span class="nearby-dist"><strong>0 km</strong></span></div>
-        <div class="nearby-item"><span class="nearby-name">Sci di fondo Villa Celiera</span><span class="nearby-dist"><strong>15 km</strong></span></div>
+        <div class="nearby-item"><span class="nearby-name">Canoa sul fiume</span><span class="nearby-dist"><strong>5 km</strong></span></div>
         <div class="nearby-item"><span class="nearby-name">Riserva Voltigno e Valle d'Angri</span><span class="nearby-dist"><strong>20 km</strong></span></div>
-        <div class="nearby-item"><span class="nearby-name">Abbazia di San Bartolomeo</span><span class="nearby-dist"><strong>22 km</strong></span></div>
-        <div class="nearby-item"><span class="nearby-name">Spiagge Adriatiche</span><span class="nearby-dist"><strong>40 km</strong></span></div>
-        <div class="nearby-item"><span class="nearby-name">Gran Sasso d'Italia</span><span class="nearby-dist"><strong>60 km</strong></span></div>
+        <div class="nearby-item"><span class="nearby-name">Maiella (Parco Nazionale)</span><span class="nearby-dist"><strong>35 km</strong></span></div>
+        <div class="nearby-item"><span class="nearby-name">Mare Adriatico</span><span class="nearby-dist"><strong>38 km</strong></span></div>
+        <div class="nearby-item"><span class="nearby-name">Campo Imperatore</span><span class="nearby-dist"><strong>50 km</strong></span></div>
+        <div class="nearby-item"><span class="nearby-name">Rocca Calascio</span><span class="nearby-dist"><strong>58 km</strong></span></div>
       </div>
     </div>
   </div>
@@ -436,6 +620,47 @@
     </iframe>
   </div>
 </div>
+
+<!-- ORGANIZZA IL TUO COMPLEANNO -->
+<section id="eventi" class="compleanno-section">
+  <div class="compleanno-inner">
+    <div class="compleanno-photos fade-in">
+      <div class="compl-photo compl-photo--main">
+        <img src="imgs/party_1.jpg" alt="Festa di compleanno al Mulino Brandolini con addobbi e ospiti" loading="lazy">
+      </div>
+      <div class="compl-photo compl-photo--a">
+        <img src="imgs/party_2.jpeg" alt="Tavola imbandita per compleanno al Mulino Brandolini" loading="lazy">
+      </div>
+      <div class="compl-photo compl-photo--b">
+        <img src="imgs/party_3.jpg" alt="Addobbi e decorazioni per compleanno nel portico del Mulino Brandolini" loading="lazy">
+      </div>
+    </div>
+    <div class="fade-in fd1">
+      <span class="compleanno-tag">Compleanni</span>
+      <h2 class="section-title">Organizza con noi<br><em>il tuo compleanno</em></h2>
+      <div class="divider" style="margin:1.5rem 0"></div>
+      <p class="section-body">Il Mulino Brandolini è la cornice ideale per festeggiare il tuo compleanno in modo indimenticabile. Il portico in pietra, il giardino sul torrente, la piscina privata e il barbecue creano un'atmosfera unica tra storia e natura.</p>
+      <div class="compleanno-services">
+        <div class="compl-service">
+          <div class="compl-service-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="compl-service-text"><strong>Location esclusiva</strong> — portico in pietra, giardino, piscina e spazio esterno riservati per tutta la giornata</div>
+        </div>
+        <div class="compl-service">
+          <div class="compl-service-icon">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="compl-service-text"><strong>Addobbi inclusi</strong> — decorazioni personalizzate a tema per rendere il tuo giorno ancora più speciale</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem">
+        <a href="compleanno.html" class="btn-primary">Scopri la pagina →</a>
+        <a href="https://wa.me/393356799679" target="_blank" rel="noopener" class="btn-primary">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- REVIEWS -->
 <section id="recensioni" class="reviews-section">
@@ -500,7 +725,7 @@
         <svg width="28" height="28" viewBox="0 0 24 24" style="flex-shrink:0" fill="white"><path d="M24 0H0v24h24ZM8.575 6.563h2.658c2.108 0 3.473 1.15 3.473 2.898 0 1.15-.575 1.82-.91 2.108l-.287.263.335.192c.815.479 1.318 1.389 1.318 2.395 0 1.988-1.51 3.257-3.857 3.257H7.449V7.713c0-.623.503-1.126 1.126-1.15zm1.7 1.868c-.479.024-.694.264-.694.79v1.893h1.676c.958 0 1.294-.743 1.294-1.365 0-.815-.503-1.318-1.318-1.318zm-.096 4.36c-.407.071-.598.31-.598.79v2.251h1.868c.934 0 1.509-.55 1.509-1.533 0-.934-.599-1.509-1.51-1.509zm7.737 2.394c.743 0 1.341.599 1.341 1.342a1.34 1.34 0 0 1-1.341 1.341 1.355 1.355 0 0 1-1.341-1.341c0-.743.598-1.342 1.34-1.342z"/></svg>
         Booking.com
       </a>
-      <a href="https://www.airbnb.com/rooms/1452277073727745973" target="_blank" rel="noopener" class="platform-btn platform-btn--airbnb" title="Prenota su Airbnb">
+      <a href="https://www.airbnb.com/rooms/1452277073727745973" target="_blank" rel="noopener" class="platform-btn platform-btn--airbnb">
         <svg width="28" height="28" viewBox="0 0 24 24" style="flex-shrink:0" fill="white"><path d="M12.001 18.275c-1.353-1.697-2.148-3.184-2.413-4.457-.263-1.027-.16-1.848.291-2.465.477-.71 1.188-1.056 2.121-1.056s1.643.345 2.12 1.063c.446.61.558 1.432.286 2.465-.291 1.298-1.085 2.785-2.412 4.458zm9.601 1.14c-.185 1.246-1.034 2.28-2.2 2.783-2.253.98-4.483-.583-6.392-2.704 3.157-3.951 3.74-7.028 2.385-9.018-.795-1.14-1.933-1.695-3.394-1.695-2.944 0-4.563 2.49-3.927 5.382.37 1.565 1.352 3.343 2.917 5.332-.98 1.085-1.91 1.856-2.732 2.333-.636.344-1.245.558-1.828.609-2.679.399-4.778-2.2-3.825-4.88.132-.345.395-.98.845-1.961l.025-.053c1.464-3.178 3.242-6.79 5.285-10.795l.053-.132.58-1.116c.45-.822.635-1.19 1.351-1.643.346-.21.77-.315 1.246-.315.954 0 1.698.558 2.016 1.007.158.239.345.557.582.953l.558 1.089.08.159c2.041 4.004 3.821 7.608 5.279 10.794l.026.025.533 1.22.318.764c.243.613.294 1.222.213 1.858zm1.22-2.39c-.186-.583-.505-1.271-.9-2.094v-.03c-1.889-4.006-3.642-7.608-5.307-10.844l-.111-.163C15.317 1.461 14.468 0 12.001 0c-2.44 0-3.476 1.695-4.535 3.898l-.081.16c-1.669 3.236-3.421 6.843-5.303 10.847v.053l-.559 1.22c-.21.504-.317.768-.345.847C-.172 20.74 2.611 24 5.98 24c.027 0 .132 0 .265-.027h.372c1.75-.213 3.554-1.325 5.384-3.317 1.829 1.989 3.635 3.104 5.382 3.317h.372c.133.027.239.027.265.027 3.37.003 6.152-3.261 4.802-6.975z"/></svg>
         Airbnb
       </a>
@@ -527,7 +752,7 @@
       <p class="section-label fade-in">Contattaci</p>
       <h2 class="section-title fade-in fd1">Siamo qui<br><em>per te</em></h2>
       <div class="divider fade-in fd2"></div>
-      <p class="section-body fade-in fd2">Lascia il tuo nome e numero di telefono. Gabriele ti ricontatterà personalmente per rispondere a ogni domanda e aiutarti a organizzare il soggiorno perfetto.</p>
+      <p class="section-body fade-in fd2">Lascia il tuo nome e numero di telefono — Gabriele ti ricontatterà personalmente per risponderti ad ogni domanda e aiutarti a organizzare il tuo soggiorno perfetto.</p>
       <div style="margin-top:2rem">
         <div class="contact-detail fade-in fd2">
           <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
@@ -545,6 +770,11 @@
           <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <div class="contact-detail-text"><span class="contact-detail-label">Capacità</span>Fino a 10 ospiti · Possibilità di affittare l'intera villa</div>
         </div>
+      </div>
+      <!-- Birthday CTA -->
+      <div class="fade-in fd3" style="margin-top:2.5rem;padding:1.5rem;background:rgba(107,79,58,.06);border:1px solid rgba(140,118,96,.2)">
+        <p style="font-size:var(--text-body);color:var(--ink-soft);font-weight:300;margin-bottom:.8rem">Vuoi organizzare una festa di compleanno indimenticabile?</p>
+        <a href="compleanno.html" class="btn-primary" style="display:inline-block">Organizza il tuo compleanno da noi →</a>
       </div>
     </div>
     <div class="fade-in fd1">
@@ -607,9 +837,6 @@
         <a href="https://www.facebook.com/mulinobrandolini/" target="_blank" rel="noopener" aria-label="Facebook">
           <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
-        <!-- <a href="#" aria-label="Instagram">
-          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a> -->
         <a href="https://wa.me/393356799679" target="_blank" rel="noopener" aria-label="WhatsApp">
           <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         </a>
@@ -618,12 +845,13 @@
     <div>
       <p class="footer-col-title">Naviga</p>
       <ul class="footer-col-links">
-        <li><a href="#about">La Struttura</a></li>
         <li><a href="#storia">Storia e Radici</a></li>
-        <li><a href="#eventi">Eventi</a></li>
+        <li><a href="#camere">Le Camere</a></li>
         <li><a href="#gallery">Galleria</a></li>
         <li><a href="galleria.html">Galleria completa</a></li>
+        <li><a href="#servizi">Servizi</a></li>
         <li><a href="#dintorni">Dintorni</a></li>
+        <li><a href="#eventi">Compleanni</a></li>
         <li><a href="#recensioni">Recensioni</a></li>
         <li><a href="#prenota">Prenota</a></li>
         <li><a href="#contatti">Contatti</a></li>
@@ -636,6 +864,7 @@
         <li><a href="https://www.airbnb.com/rooms/1452277073727745973" target="_blank" rel="noopener">Airbnb</a></li>
         <li><a href="#contatti">Richiesta diretta</a></li>
         <li><a href="tel:+393356799679">Chiama Gabriele</a></li>
+        <li><a href="compleanno.html">Organizza compleanno</a></li>
       </ul>
     </div>
     <div>
@@ -664,6 +893,20 @@
   </div>
 </footer>
 
+<script>
+// Natura section — trigger slow zoom animation on scroll into view
+(function(){
+  const wrap = document.getElementById('naturaHeroWrap');
+  if(!wrap) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting) wrap.classList.add('natura-zoomed');
+      else wrap.classList.remove('natura-zoomed');
+    });
+  }, { threshold: 0.1 });
+  obs.observe(wrap);
+})();
+</script>
 <script src="script.js" defer></script>
 </body>
 </html>
