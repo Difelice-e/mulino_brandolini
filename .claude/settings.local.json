@@ -10,7 +10,12 @@
       "Bash(py -3 \"C:\\\\Users\\\\difel\\\\.claude\\\\plugins\\\\cache\\\\ui-ux-pro-max-skill\\\\ui-ux-pro-max\\\\2.5.0\\\\scripts\\\\search.py\" \"heritage luxury historic rustic warm\" --design-system -f markdown)",
       "Bash(npm install:*)",
       "Bash(npm run:*)",
-      "Bash(node dist/index.js \"heritage luxury historic rustic warm\" --design-system -f markdown)"
+      "Bash(node dist/index.js \"heritage luxury historic rustic warm\" --design-system -f markdown)",
+      "Bash(grep -r \"color\\\\|palette\\\\|brand\\\\|design\" /home/emanuele/projects/mulino_brandolini/*.html)",
+      "Bash(git -C /home/emanuele/projects/mulino_brandolini log --oneline)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)"
     ]
   }
 }

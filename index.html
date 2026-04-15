@@ -92,7 +92,7 @@
 .natura-strip-item::after{content:'';position:absolute;inset:0;background:rgba(10,20,10,.15);transition:background var(--t-slow)}
 .natura-strip-item:hover img{transform:scale(1.07)}
 .natura-strip-item:hover::after{background:rgba(10,20,10,0)}
-@media(max-width:700px){.natura-hero-content{margin-left:0;}.natura-strip{grid-template-columns:1fr;height:auto}.natura-strip-item{height:360px}}
+@media(max-width:700px){.natura-hero-content{margin-left:0;}.natura-strip{grid-template-columns:1fr;height:auto}.natura-strip-item{height:360px}.natura-strip-item .gallery-label{opacity:1}}
 
 /* ── EVENTI COMPLEANNI ── */
 .compleanno-section{background:var(--cream-warm);padding:var(--section-py) var(--section-px)}
@@ -120,6 +120,7 @@
 .features-grid-8 .feature-item:nth-child(n+5){border-top:1px solid rgba(140,118,96,.2)}
 @media(max-width:900px){.features-grid-8{grid-template-columns:repeat(2,1fr)}.features-grid-8 .feature-item:nth-child(2n){border-right:none}.features-grid-8 .feature-item:nth-child(n+3){border-top:1px solid rgba(140,118,96,.2)}.features-grid-8 .feature-item:nth-child(2){border-right:none}.features-grid-8 .feature-item:nth-child(4){border-right:none}}
 @media(max-width:500px){.features-grid-8{grid-template-columns:1fr}.features-grid-8 .feature-item{border-right:none!important;border-top:none!important;border-bottom:1px solid rgba(140,118,96,.15)}.features-grid-8 .feature-item:last-child{border-bottom:none}}
+.features-note{max-width:var(--inner-md);margin:2.5rem auto 0;text-align:center;font-size:var(--text-sm);color:var(--stone-dark);opacity:.8;line-height:1.6}
 </style>
 </head>
 <body>
@@ -269,7 +270,7 @@
         <div class="storia-facts">
           <div class="storia-fact"><span class="storia-fact-num">210</span><span class="storia-fact-label">m² di struttura</span></div>
           <div class="storia-fact"><span class="storia-fact-num">5</span><span class="storia-fact-label">camere</span></div>
-          <div class="storia-fact"><span class="storia-fact-num">10</span><span class="storia-fact-label">ospiti</span></div>
+          <div class="storia-fact"><span class="storia-fact-num">10</span><span class="storia-fact-label">posti letto</span></div>
           <div class="storia-fact"><span class="storia-fact-num">200+</span><span class="storia-fact-label">anni di storia</span></div>
         </div>
         <div class="storia-owner">
@@ -460,12 +461,15 @@
   <div class="natura-strip">
     <div class="natura-strip-item fade-in">
       <img src="imgs/natura_1.jpg" alt="Cascata naturale sul torrente Nora nel Parco Fluviale" loading="lazy">
+      <div class="gallery-label">Cascate · Parco Fluviale</div>
     </div>
     <div class="natura-strip-item fade-in fd1">
       <img src="imgs/rocca_calascio_1.jpeg" alt="Rocca Calascio — borgo medievale tra le montagne abruzzesi" loading="lazy">
+      <div class="gallery-label">Rocca Calascio</div>
     </div>
     <div class="natura-strip-item fade-in fd2">
       <img src="imgs/natura_2.jpg" alt="Sentiero immerso nel bosco del Parco Fluviale del Nora" loading="lazy">
+      <div class="gallery-label">Parco Fluviale</div>
     </div>
   </div>
 </section>
@@ -496,7 +500,7 @@
         <picture>
           <img src="imgs/barbecue_1.jpeg" alt="Arrosticini abruzzesi alla brace nel cortile del Mulino Brandolini" loading="lazy">
         </picture>
-        <div class="gallery-label">Barbecue · Arrosticini</div>
+        <div class="gallery-label">Barbecue</div>
       </div>
 
       <!-- Vista aerea -->
@@ -514,13 +518,13 @@
           <source srcset="imgs/IMG_5296.webp" type="image/webp">
           <img src="imgs/IMG_5296.PNG" alt="Barbecue con canalina per arrosticini al Mulino Brandolini" loading="lazy">
         </picture>
-        <div class="gallery-label">Arrosticini abruzzesi</div>
+        <div class="gallery-label">Arrosticini</div>
       </div>
 
       <!-- Barbecue 2 -->
       <div class="gallery-item gi5">
         <img src="imgs/barbecue_2.jpg" alt="Grigliata serale con il barbecue del Mulino Brandolini" loading="lazy">
-        <div class="gallery-label">Barbecue · Serata estiva</div>
+        <div class="gallery-label">Arrosticini Abruzzesi</div>
       </div>
 
       <!-- Compleanno -->
@@ -585,6 +589,7 @@
         <div class="feature-desc">Percorsi naturalistici nel Parco del torrente Nora con accesso diretto dalla struttura</div>
       </div>
     </div>
+    <p class="features-note">*La struttura viene affittata esclusivamente ad uso privato, garantendo totale privacy agli ospiti. Non è prevista la prenotazione di singole camere. Non sono ammessi animali.</p>
   </div>
 </div>
 
@@ -776,11 +781,11 @@
         </div>
         <div class="contact-detail fade-in fd3">
           <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <div class="contact-detail-text"><span class="contact-detail-label">Check-in / Check-out</span>Comunicare orario di arrivo in anticipo · Check-out flessibile</div>
+          <div class="contact-detail-text"><span class="contact-detail-label">Check-in / Check-out</span>Comunicare orario di arrivo in anticipo · Check-out 12:00</div>
         </div>
         <div class="contact-detail fade-in fd3">
           <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <div class="contact-detail-text"><span class="contact-detail-label">Capacità</span>Fino a 10 ospiti · Possibilità di affittare l'intera villa</div>
+          <div class="contact-detail-text"><span class="contact-detail-label">Capacità</span>10 posti letto · Solo intera villa</div>
         </div>
       </div>
       <!-- Birthday CTA -->
