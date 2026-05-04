@@ -66,6 +66,7 @@
 .compl-info-label{font-size:var(--text-xs);letter-spacing:.2em;text-transform:uppercase;color:var(--stone-dark);margin-top:.4rem;display:block}
 @media(max-width:600px){.compl-info-strip-inner{grid-template-columns:1fr;gap:1.5rem}}
 </style>
+<link rel="stylesheet" href="cookie-banner.css">
 </head>
 <body>
 
@@ -255,16 +256,17 @@
       </div>
       <div class="footer-contact-item">
         <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <span><a href="mailto:mulinobrando@gmail.com">mulinobrando@gmail.com</a></span>
+        <span><a href="mailto:info.mulinobrandolini@gmail.com">info.mulinobrandolini@gmail.com</a></span>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2026 Mulino Brandolini · Gabriele Brandolini · Powered by GRY Brokers</p>
+    <p class="footer-copy">© 2026 Mulino Brandolini · Gabriele Brandolini · Powered by GRY Broker</p>
     <div class="footer-bottom-links">
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="cookie-policy.html">Cookie Policy</a>
       <a href="note-legali.html">Note Legali</a>
+      <a href="#" onclick="event.preventDefault(); window.__openCookiePreferences && window.__openCookiePreferences();">Gestisci preferenze cookie</a>
     </div>
   </div>
 </footer>
@@ -283,6 +285,17 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+<script src="cookie-banner.js" defer></script>
+<script>
+window.addEventListener('DOMContentLoaded', function () {
+  if (window.CookieBanner) {
+    window.CookieBanner.init({
+      policyUrl: 'cookie-policy.html',
+      version: '1'
+    });
+  }
+});
 </script>
 </body>
 </html>

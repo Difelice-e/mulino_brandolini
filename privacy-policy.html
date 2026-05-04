@@ -25,7 +25,13 @@
 .legal-meta{font-size:var(--text-xs);letter-spacing:.1em;color:var(--stone-dark);margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--stone-light)}
 .legal-back{display:inline-flex;align-items:center;gap:.5rem;font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--stone);text-decoration:none;margin-bottom:1.5rem;transition:color var(--t-base)}
 .legal-back:hover{color:var(--cream)}
+.legal-body table{width:100%;border-collapse:collapse;margin:1.2rem 0 2rem;font-size:var(--text-sm)}
+.legal-body table th{background:var(--earth-dark);color:var(--stone-light);padding:.6rem 1rem;text-align:left;font-weight:var(--weight-regular);font-size:var(--text-xs);letter-spacing:.1em;text-transform:uppercase}
+.legal-body table td{padding:.7rem 1rem;border-bottom:1px solid var(--stone-light);color:var(--ink-soft);line-height:var(--leading-normal)}
+.legal-body table tr:last-child td{border-bottom:none}
+.legal-body table tr:nth-child(even) td{background:rgba(200,184,154,.1)}
 </style>
+<link rel="stylesheet" href="cookie-banner.css">
 </head>
 <body>
 
@@ -60,62 +66,87 @@
 <div class="legal-body">
   <a href="index.html" class="legal-back">← Torna alla homepage</a>
 
-  <h2>1. Titolare del trattamento</h2>
-  <p><strong>Titolare:</strong> Gabriele Brandolini<br>
-  <strong>Denominazione struttura:</strong> Casa Vacanze Mulino Brandolini<br>
-  <strong>Indirizzo:</strong> Via De Contra, 23 — 65010 Vicoli (PE), Abruzzo, Italia<br>
-  <strong>Telefono:</strong> <a href="tel:+393356799679">+39 335 679 9679</a><br>
-  <strong>E-mail:</strong> <a href="mailto:info@mulinobrandolini.it">info@mulinobrandolini.it</a><br>
-  <strong>Licenza:</strong> 068045CVP0002</p>
+  <p>La presente Informativa è resa ai sensi degli artt. 13 e 14 del Regolamento (UE) 2016/679 ("GDPR") e del D.Lgs. 196/2003 ("Codice Privacy") agli utenti che interagiscono con il sito <strong>mulinobrandolini.com</strong>.</p>
 
-  <h2>2. Tipologie di dati raccolti</h2>
-  <p>Il sito raccoglie unicamente i dati forniti volontariamente dall'utente attraverso il modulo di contatto:</p>
+  <h2>1. Titolare del trattamento</h2>
+  <p>
+    <strong>Gabriele Brandolini</strong> — Casa Vacanze Mulino Brandolini<br>
+    Via De Contra, 23 — 65010 Vicoli (PE), Abruzzo, Italia<br>
+    Tel.: <a href="tel:+393356799679">+39 335 679 9679</a><br>
+    E-mail: <a href="mailto:info.mulinobrandolini@gmail.com">info.mulinobrandolini@gmail.com</a><br>
+    CIR (Codice Identificativo Regionale): 068045CVP0002
+  </p>
+
+  <h2>2. Tipologie di dati trattati</h2>
+  <p>Il Titolare può trattare le seguenti categorie di dati personali:</p>
   <ul>
-    <li>Nome e cognome</li>
-    <li>Numero di telefono</li>
-    <li>Data di check-in prevista e orario di arrivo (facoltativi)</li>
-    <li>Messaggio libero (facoltativo)</li>
+    <li><strong>Dati di contatto</strong> forniti volontariamente tramite il modulo di prenotazione (nome, telefono, email, data di check-in, orario di arrivo, messaggio).</li>
+    <li><strong>Dati richiesti dagli obblighi di accoglienza</strong> in caso di soggiorno effettivo (documento d'identità, dati anagrafici), per le comunicazioni alle autorità di pubblica sicurezza ex art. 109 T.U.L.P.S. e per la tassa di soggiorno comunale.</li>
+    <li><strong>Dati di navigazione</strong> raccolti automaticamente dai sistemi (indirizzo IP, log di accesso, user agent, pagine visitate, timestamp).</li>
+    <li><strong>Cookie e identificatori online</strong> secondo quanto descritto nella <a href="cookie-policy.html">Cookie Policy</a>.</li>
   </ul>
-  <p>Sono inoltre raccolti automaticamente, come in qualsiasi navigazione web, i dati tecnici di accesso (indirizzo IP, tipo di browser, pagine visitate, orario di accesso) tramite il server di hosting. Tali dati non sono utilizzati per profilazione e vengono conservati per il tempo strettamente necessario a fini di sicurezza.</p>
 
   <h2>3. Finalità e basi giuridiche del trattamento</h2>
-  <h3>a) Gestione delle richieste di prenotazione e informazioni</h3>
-  <p>I dati inseriti nel modulo di contatto sono trattati esclusivamente per rispondere alla richiesta dell'utente e gestire l'eventuale prenotazione. Base giuridica: esecuzione di un contratto o misure precontrattuali (art. 6 §1 lett. b GDPR) e consenso espresso dell'interessato (art. 6 §1 lett. a GDPR).</p>
-  <h3>b) Obblighi di legge</h3>
-  <p>I dati degli ospiti che effettuano il soggiorno sono trattati per adempiere agli obblighi di comunicazione alle autorità di pubblica sicurezza previsti dalla normativa italiana (T.U.L.P.S. e relative circolari). Base giuridica: obbligo legale (art. 6 §1 lett. c GDPR).</p>
+  <h3>a) Gestione delle richieste di prenotazione</h3>
+  <p>I dati inseriti nel modulo sono trattati per riscontrare la richiesta e gestire l'eventuale prenotazione. <strong>Base giuridica:</strong> esecuzione di misure precontrattuali su richiesta dell'interessato (art. 6 §1 lett. b GDPR). <strong>Conservazione:</strong> 24 mesi dall'ultimo contatto.</p>
 
-  <h2>4. Modalità di trattamento e conservazione</h2>
-  <p>I dati sono trattati con strumenti informatici e cartacei, adottando misure di sicurezza adeguate per prevenire accessi non autorizzati. I dati di contatto sono conservati per il tempo necessario a gestire la richiesta e, in caso di soggiorno effettivo, per il tempo previsto dagli obblighi di legge (in genere 5 anni per documentazione fiscale e contabile).</p>
+  <h3>b) Comunicazioni di pubblica sicurezza e tassa di soggiorno</h3>
+  <p>I dati degli ospiti effettivi sono comunicati al Portale Alloggiati Web della Polizia di Stato e al Comune di Vicoli per la tassa di soggiorno. <strong>Base giuridica:</strong> obbligo di legge (art. 6 §1 lett. c GDPR — art. 109 T.U.L.P.S. e regolamenti comunali).</p>
 
-  <h2>5. Comunicazione dei dati</h2>
-  <p>I dati non sono ceduti a terzi per finalità commerciali o di marketing. Possono essere comunicati esclusivamente a:</p>
+  <h3>c) Adempimenti contabili e fiscali</h3>
+  <p>Emissione di ricevute, fatture e registrazioni contabili. <strong>Base giuridica:</strong> obbligo di legge (art. 6 §1 lett. c GDPR). <strong>Conservazione:</strong> 10 anni (art. 2220 c.c.).</p>
+
+  <h3>d) Sicurezza del sito</h3>
+  <p>Log di server e dati tecnici utilizzati per prevenire abusi e garantire il funzionamento del sito. <strong>Base giuridica:</strong> legittimo interesse (art. 6 §1 lett. f GDPR). <strong>Conservazione:</strong> 12 mesi.</p>
+
+  <h3>e) Statistiche di utilizzo del sito</h3>
+  <p>In presenza di consenso, il sito può raccogliere dati aggregati sull'uso delle pagine. <strong>Base giuridica:</strong> consenso (art. 6 §1 lett. a GDPR). <strong>Conservazione:</strong> vedi <a href="cookie-policy.html">Cookie Policy</a>.</p>
+
+  <h2>4. Modalità del trattamento</h2>
+  <p>I dati sono trattati con strumenti elettronici e cartacei, con misure tecniche e organizzative adeguate ex art. 32 GDPR. Il sito è ospitato su infrastruttura GitHub Pages.</p>
+
+  <h2>5. Destinatari dei dati</h2>
+  <p>I dati possono essere comunicati alle seguenti categorie di destinatari, nominati Responsabili del trattamento ex art. 28 GDPR ove richiesto:</p>
   <ul>
-    <li>Autorità di pubblica sicurezza, in adempimento degli obblighi di legge</li>
-    <li>Consulenti fiscali e amministrativi del titolare, nella misura necessaria all'adempimento degli obblighi contrattuali e fiscali</li>
-    <li>Provider di hosting e servizi web strettamente necessari al funzionamento del sito</li>
+    <li><strong>GitHub Inc.</strong> — provider di hosting (GitHub Pages) per l'erogazione del sito statico.</li>
+    <li><strong>Google LLC</strong> — Google Fonts per il rendering tipografico e, se integrate, Google Maps.</li>
+    <li><strong>Booking.com B.V.</strong> e <strong>Airbnb Ireland UC</strong> — limitatamente alle prenotazioni effettuate tramite tali piattaforme, secondo le rispettive informative privacy.</li>
+    <li><strong>WhatsApp Ireland Ltd. (Meta)</strong> — quando l'utente sceglie di contattare il Titolare via WhatsApp.</li>
+    <li><strong>Polizia di Stato — Portale Alloggiati Web</strong> e <strong>Comune di Vicoli</strong> — per gli adempimenti di legge sopra descritti.</li>
+    <li><strong>Consulenti fiscali e amministrativi</strong> — per obblighi contabili e di legge.</li>
+    <li><strong>Autorità giudiziarie o amministrative</strong> — su richiesta legittima.</li>
   </ul>
-  <p>I dati non sono trasferiti in Paesi al di fuori dell'Unione Europea.</p>
 
-  <h2>6. Diritti dell'interessato</h2>
-  <p>L'interessato ha il diritto di:</p>
+  <h2>6. Trasferimenti extra-UE</h2>
+  <p>Alcuni fornitori (Google, GitHub, Booking, Airbnb, Meta) possono trasferire dati al di fuori dello Spazio Economico Europeo. In tali casi il trasferimento avviene sulla base di Decisioni di adeguatezza della Commissione Europea (es. EU-U.S. Data Privacy Framework) o di Clausole Contrattuali Standard ex art. 46 GDPR.</p>
+
+  <h2>7. Diritti dell'interessato</h2>
+  <p>In ogni momento, ai sensi degli artt. 15–22 GDPR, l'interessato ha diritto di:</p>
   <ul>
-    <li>Accedere ai propri dati personali (art. 15 GDPR)</li>
-    <li>Ottenere la rettifica di dati inesatti (art. 16 GDPR)</li>
-    <li>Chiedere la cancellazione dei dati (art. 17 GDPR), salvo obblighi di legge</li>
-    <li>Richiedere la limitazione del trattamento (art. 18 GDPR)</li>
-    <li>Opporsi al trattamento (art. 21 GDPR)</li>
-    <li>Revocare il consenso in qualsiasi momento, senza pregiudizio per la liceità del trattamento precedente</li>
-    <li>Proporre reclamo all'Autorità di controllo nazionale (Garante per la Protezione dei Dati Personali — <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a>)</li>
+    <li><strong>Accedere</strong> ai propri dati e ottenerne copia (art. 15)</li>
+    <li>Ottenere la <strong>rettifica</strong> di dati inesatti o incompleti (art. 16)</li>
+    <li>Chiedere la <strong>cancellazione</strong> dei dati nei casi previsti (art. 17)</li>
+    <li>Ottenere la <strong>limitazione</strong> del trattamento (art. 18)</li>
+    <li>Ricevere i dati in formato strutturato — <strong>portabilità</strong> (art. 20)</li>
+    <li><strong>Opporsi</strong> al trattamento per motivi connessi alla propria situazione (art. 21)</li>
+    <li><strong>Revocare il consenso</strong> in qualsiasi momento, senza pregiudicare la liceità del trattamento precedente</li>
+    <li>Proporre <strong>reclamo</strong> all'Autorità Garante per la protezione dei dati personali — <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a></li>
   </ul>
-  <p>Per esercitare i propri diritti, l'interessato può contattare il titolare all'indirizzo e-mail <a href="mailto:info@mulinobrandolini.it">info@mulinobrandolini.it</a> o al numero <a href="tel:+393356799679">+39 335 679 9679</a>.</p>
+  <p>Per esercitare i diritti scrivere a <a href="mailto:info.mulinobrandolini@gmail.com">info.mulinobrandolini@gmail.com</a> o telefonare al <a href="tel:+393356799679">+39 335 679 9679</a>. Risposta entro un mese, prorogabile di altri due nei casi di particolare complessità.</p>
 
-  <h2>7. Cookie</h2>
-  <p>Il sito utilizza esclusivamente cookie tecnici necessari al corretto funzionamento della navigazione. Non sono utilizzati cookie di profilazione, tracciamento o marketing. Per maggiori informazioni consultare la <a href="cookie-policy.html">Cookie Policy</a>.</p>
+  <h2>8. Conferimento dei dati</h2>
+  <p>Il conferimento dei dati nel modulo è facoltativo, ma il rifiuto può rendere impossibile rispondere alla richiesta. Il conferimento dei dati richiesti per gli obblighi di Pubblica Sicurezza e fiscali è obbligatorio in caso di soggiorno effettivo.</p>
 
-  <h2>8. Modifiche alla presente informativa</h2>
-  <p>Il titolare si riserva il diritto di aggiornare la presente informativa. La versione aggiornata sarà pubblicata su questa pagina con la relativa data di revisione.</p>
+  <h2>9. Processi decisionali automatizzati</h2>
+  <p>Il Titolare non utilizza processi decisionali automatizzati né attività di profilazione ai sensi dell'art. 22 GDPR.</p>
 
-  <p class="legal-meta">Ultima revisione: marzo 2025 · Versione 1.0</p>
+  <h2>10. Cookie</h2>
+  <p>L'uso dei cookie è descritto in dettaglio nella <a href="cookie-policy.html">Cookie Policy</a>. È sempre possibile rivedere o revocare il consenso cliccando su <a href="#" onclick="event.preventDefault(); window.__openCookiePreferences && window.__openCookiePreferences();">Gestisci preferenze cookie</a>.</p>
+
+  <h2>11. Modifiche</h2>
+  <p>Il Titolare si riserva il diritto di aggiornare la presente Informativa. La versione aggiornata sarà pubblicata su questa pagina con la data di revisione.</p>
+
+  <p class="legal-meta">Ultima revisione: maggio 2026 · Versione 2.0</p>
 </div>
 
 <!-- FOOTER -->
@@ -171,11 +202,12 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2026 Mulino Brandolini · Gabriele Brandolini · Powered by GRY Brokers</p>
+    <p class="footer-copy">© 2026 Mulino Brandolini · Gabriele Brandolini · Powered by GRY Broker</p>
     <div class="footer-bottom-links">
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="cookie-policy.html">Cookie Policy</a>
       <a href="note-legali.html">Note Legali</a>
+      <a href="#" onclick="event.preventDefault(); window.__openCookiePreferences && window.__openCookiePreferences();">Gestisci preferenze cookie</a>
     </div>
   </div>
 </footer>
@@ -184,6 +216,17 @@
 document.getElementById('burger').addEventListener('click',function(){
   this.classList.toggle('open');
   document.getElementById('navLinks').classList.toggle('open');
+});
+</script>
+<script src="cookie-banner.js" defer></script>
+<script>
+window.addEventListener('DOMContentLoaded', function () {
+  if (window.CookieBanner) {
+    window.CookieBanner.init({
+      policyUrl: 'cookie-policy.html',
+      version: '1'
+    });
+  }
 });
 </script>
 </body>

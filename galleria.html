@@ -51,6 +51,7 @@
 @media(max-width:900px){.gpage-grid{grid-template-columns:repeat(2,1fr)}.gpage-item--wide{grid-column:1/3}}
 @media(max-width:600px){.gpage-grid{grid-template-columns:1fr}.gpage-item--wide{grid-column:auto;aspect-ratio:4/3}}
 </style>
+<link rel="stylesheet" href="cookie-banner.css">
 </head>
 <body>
 
@@ -255,11 +256,12 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2026 Mulino Brandolini · Gabriele Brandolini · Powered by GRY Brokers</p>
+    <p class="footer-copy">© 2026 Mulino Brandolini · Gabriele Brandolini · Powered by GRY Broker</p>
     <div class="footer-bottom-links">
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="cookie-policy.html">Cookie Policy</a>
       <a href="note-legali.html">Note Legali</a>
+      <a href="#" onclick="event.preventDefault(); window.__openCookiePreferences && window.__openCookiePreferences();">Gestisci preferenze cookie</a>
     </div>
   </div>
 </footer>
@@ -310,6 +312,17 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeLb();
   if (e.key === 'ArrowLeft') prevLb();
   if (e.key === 'ArrowRight') nextLb();
+});
+</script>
+<script src="cookie-banner.js" defer></script>
+<script>
+window.addEventListener('DOMContentLoaded', function () {
+  if (window.CookieBanner) {
+    window.CookieBanner.init({
+      policyUrl: 'cookie-policy.html',
+      version: '1'
+    });
+  }
 });
 </script>
 </body>

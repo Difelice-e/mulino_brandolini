@@ -123,6 +123,7 @@
 @media(max-width:500px){.features-grid-8{grid-template-columns:1fr}.features-grid-8 .feature-item{border-right:none!important;border-top:none!important;border-bottom:1px solid rgba(140,118,96,.15)}.features-grid-8 .feature-item:last-child{border-bottom:none}}
 .features-note{max-width:var(--inner-md);margin:2.5rem auto 0;text-align:center;font-size:var(--text-sm);color:var(--stone-dark);opacity:.8;line-height:1.6}
 </style>
+<link rel="stylesheet" href="cookie-banner.css">
 </head>
 <body>
 
@@ -902,11 +903,12 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2026 Mulino Brandolini · Gabriele Brandolini · Powered by GRY Brokers</p>
+    <p class="footer-copy">© 2026 Mulino Brandolini · Gabriele Brandolini · Powered by GRY Broker</p>
     <div class="footer-bottom-links">
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="cookie-policy.html">Cookie Policy</a>
       <a href="note-legali.html">Note Legali</a>
+      <a href="#" onclick="event.preventDefault(); window.__openCookiePreferences && window.__openCookiePreferences();">Gestisci preferenze cookie</a>
     </div>
   </div>
 </footer>
@@ -926,5 +928,16 @@
 })();
 </script>
 <script src="script.js" defer></script>
+<script src="cookie-banner.js" defer></script>
+<script>
+window.addEventListener('DOMContentLoaded', function () {
+  if (window.CookieBanner) {
+    window.CookieBanner.init({
+      policyUrl: 'cookie-policy.html',
+      version: '1'
+    });
+  }
+});
+</script>
 </body>
 </html>
